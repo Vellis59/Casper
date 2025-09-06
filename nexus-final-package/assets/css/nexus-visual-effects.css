@@ -1,0 +1,427 @@
+/* Nexus Visual Effects - Glassmorphism, Neon, Animations
+/* ---------------------------------------------------------- */
+
+/* Glassmorphism Components */
+.nexus-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.nexus-glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+}
+
+/* Neon Glow Effects */
+.nexus-neon-primary {
+    color: var(--nexus-primary);
+    text-shadow: 
+        0 0 5px var(--nexus-primary),
+        0 0 10px var(--nexus-primary),
+        0 0 15px var(--nexus-primary),
+        0 0 20px var(--nexus-primary);
+}
+
+.nexus-neon-accent {
+    color: var(--nexus-accent);
+    text-shadow: 
+        0 0 5px var(--nexus-accent),
+        0 0 10px var(--nexus-accent),
+        0 0 15px var(--nexus-accent);
+}
+
+.nexus-neon-box {
+    box-shadow: 
+        0 0 10px var(--nexus-primary),
+        0 0 20px var(--nexus-primary),
+        0 0 30px var(--nexus-primary),
+        inset 0 0 10px rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--nexus-primary);
+}
+
+.nexus-neon-box:hover {
+    box-shadow: 
+        0 0 15px var(--nexus-primary),
+        0 0 30px var(--nexus-primary),
+        0 0 45px var(--nexus-primary),
+        inset 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+/* Holographic Effects */
+.nexus-hologram {
+    position: relative;
+    background: linear-gradient(45deg, 
+        rgba(0, 212, 255, 0.1) 0%,
+        rgba(255, 107, 53, 0.1) 25%,
+        rgba(0, 255, 136, 0.1) 50%,
+        rgba(255, 170, 0, 0.1) 75%,
+        rgba(0, 212, 255, 0.1) 100%);
+    background-size: 400% 400%;
+    animation: nexus-hologram 4s ease infinite;
+    overflow: hidden;
+}
+
+.nexus-hologram::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%);
+    animation: nexus-shine 2s infinite;
+}
+
+@keyframes nexus-hologram {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes nexus-shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Matrix Digital Rain */
+.nexus-matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.nexus-matrix-char {
+    position: absolute;
+    font-family: var(--nexus-font-code);
+    font-size: 14px;
+    color: var(--nexus-primary);
+    opacity: 0.3;
+    animation: nexus-matrix-drop 8s linear infinite;
+}
+
+@keyframes nexus-matrix-drop {
+    0% { 
+        transform: translateY(-100vh); 
+        opacity: 0; 
+    }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { 
+        transform: translateY(100vh); 
+        opacity: 0; 
+    }
+}
+
+/* Cyberpunk Scan Lines */
+.nexus-scanlines {
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-scanlines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        transparent 0%,
+        rgba(0, 212, 255, 0.03) 50%,
+        transparent 51%,
+        transparent 100%
+    );
+    background-size: 100% 4px;
+    animation: nexus-scan 0.1s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes nexus-scan {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 4px; }
+}
+
+/* Particle Burst Animation */
+.nexus-particle-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-particle-burst {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--nexus-primary);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Morphing Shapes */
+.nexus-morph {
+    animation: nexus-morph-shape 6s ease-in-out infinite;
+}
+
+@keyframes nexus-morph-shape {
+    0%, 100% { border-radius: var(--nexus-radius-md); }
+    25% { border-radius: 50% 10% 50% 10%; }
+    50% { border-radius: 10% 50% 10% 50%; }
+    75% { border-radius: 50%; }
+}
+
+/* Glitch Text Effect */
+.nexus-glitch-text {
+    position: relative;
+    color: var(--text-primary);
+}
+
+.nexus-glitch-text::before,
+.nexus-glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--nexus-bg-primary);
+}
+
+.nexus-glitch-text::before {
+    animation: nexus-glitch-1 0.5s infinite;
+    color: var(--nexus-primary);
+    z-index: -1;
+}
+
+.nexus-glitch-text::after {
+    animation: nexus-glitch-2 0.5s infinite;
+    color: var(--nexus-accent);
+    z-index: -2;
+}
+
+@keyframes nexus-glitch-1 {
+    0%, 14%, 15%, 49%, 50%, 99%, 100% { 
+        transform: translate3d(0, 0, 0); 
+    }
+    1%, 13% { 
+        transform: translate3d(-2px, 0, 0); 
+    }
+    16%, 48% { 
+        transform: translate3d(2px, 0, 0); 
+    }
+}
+
+@keyframes nexus-glitch-2 {
+    0%, 20%, 21%, 62%, 63%, 99%, 100% { 
+        transform: translate3d(0, 0, 0); 
+    }
+    1%, 19% { 
+        transform: translate3d(2px, 0, 0); 
+    }
+    22%, 61% { 
+        transform: translate3d(-2px, 0, 0); 
+    }
+}
+
+/* Data Stream Effect */
+.nexus-data-stream {
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-data-stream::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(0, 212, 255, 0.6) 50%,
+        transparent 100%);
+    animation: nexus-data-flow 2s ease-in-out infinite;
+}
+
+@keyframes nexus-data-flow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Floating Elements */
+.nexus-float {
+    animation: nexus-floating 3s ease-in-out infinite;
+}
+
+@keyframes nexus-floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.nexus-float-slow {
+    animation: nexus-floating-slow 4s ease-in-out infinite;
+}
+
+@keyframes nexus-floating-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* 3D Hover Effects */
+.nexus-3d-hover {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.nexus-3d-hover:hover {
+    transform: perspective(1000px) rotateX(10deg) rotateY(10deg) translateZ(20px);
+}
+
+/* Pulse Animation */
+.nexus-pulse {
+    animation: nexus-pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes nexus-pulse-glow {
+    0%, 100% { 
+        opacity: 0.8; 
+        box-shadow: 0 0 5px var(--nexus-primary); 
+    }
+    50% { 
+        opacity: 1; 
+        box-shadow: 0 0 20px var(--nexus-primary), 0 0 30px var(--nexus-primary); 
+    }
+}
+
+/* Typewriter Effect */
+.nexus-typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--nexus-primary);
+    white-space: nowrap;
+    animation: nexus-typing 3.5s steps(40, end), nexus-blink-caret 0.75s step-end infinite;
+}
+
+@keyframes nexus-typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes nexus-blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--nexus-primary); }
+}
+
+/* Energy Orb */
+.nexus-energy-orb {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--nexus-primary) 0%, transparent 70%);
+    animation: nexus-energy-pulse 1.5s ease-in-out infinite;
+}
+
+.nexus-energy-orb::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 60%, var(--nexus-primary) 70%, transparent 80%);
+    animation: nexus-energy-ring 2s linear infinite;
+}
+
+@keyframes nexus-energy-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes nexus-energy-ring {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1.1); }
+}
+
+/* Loading Spinner - Futuristic */
+.nexus-spinner-advanced {
+    width: 40px;
+    height: 40px;
+    border: 3px solid transparent;
+    border-top: 3px solid var(--nexus-primary);
+    border-right: 3px solid var(--nexus-accent);
+    border-radius: 50%;
+    animation: nexus-spin-advanced 1s linear infinite;
+    position: relative;
+}
+
+.nexus-spinner-advanced::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border: 2px solid transparent;
+    border-bottom: 2px solid var(--nexus-success);
+    border-radius: 50%;
+    animation: nexus-spin-advanced 1.5s linear infinite reverse;
+}
+
+@keyframes nexus-spin-advanced {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Reactive Background */
+.nexus-reactive-bg {
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        rgba(0, 212, 255, 0.1) 0%, 
+        transparent 50%);
+    transition: background 0.3s ease;
+}
+
+/* Hexagon Grid Pattern */
+.nexus-hex-pattern {
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+/* Circuit Board Lines */
+.nexus-circuit {
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-circuit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, var(--nexus-primary) 1px, transparent 1px),
+        linear-gradient(0deg, var(--nexus-primary) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    animation: nexus-circuit-flow 4s linear infinite;
+}
+
+@keyframes nexus-circuit-flow {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}

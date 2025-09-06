@@ -1,0 +1,317 @@
+/* Nexus Tech Components
+/* ---------------------------------------------------------- */
+
+/* === CODE BLOCKS === */
+
+.nexus-code-block {
+    position: relative;
+    margin: var(--nexus-space-lg) 0;
+    background: var(--nexus-bg-code);
+    border: var(--nexus-border-width) solid var(--nexus-border);
+    border-radius: var(--nexus-radius-lg);
+    overflow: hidden;
+}
+
+.nexus-code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--nexus-space-sm) var(--nexus-space-md);
+    background: var(--nexus-bg-tertiary);
+    border-bottom: var(--nexus-border-width) solid var(--nexus-border);
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-sm);
+    color: var(--nexus-text-secondary);
+}
+
+.nexus-code-lang {
+    font-weight: var(--nexus-font-medium);
+    color: var(--nexus-primary);
+}
+
+.nexus-code-copy {
+    padding: var(--nexus-space-xs) var(--nexus-space-sm);
+    background: transparent;
+    border: var(--nexus-border-width) solid var(--nexus-border);
+    border-radius: var(--nexus-radius-sm);
+    color: var(--nexus-text-secondary);
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-xs);
+    cursor: pointer;
+    transition: all var(--nexus-transition-fast);
+}
+
+.nexus-code-copy:hover {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    transform: translateY(-1px);
+}
+
+.nexus-code-content {
+    padding: var(--nexus-space-md);
+    overflow-x: auto;
+}
+
+.nexus-code-content pre {
+    margin: 0;
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-sm);
+    line-height: var(--nexus-leading-relaxed);
+}
+
+/* === TERMINAL COMPONENT === */
+
+.nexus-terminal {
+    margin: var(--nexus-space-lg) 0;
+    background: var(--nexus-bg-primary);
+    border-radius: var(--nexus-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--nexus-shadow-lg);
+}
+
+.nexus-terminal-header {
+    display: flex;
+    align-items: center;
+    padding: var(--nexus-space-sm) var(--nexus-space-md);
+    background: var(--nexus-bg-tertiary);
+    border-bottom: var(--nexus-border-width) solid var(--nexus-border);
+}
+
+.nexus-terminal-dots {
+    display: flex;
+    gap: var(--nexus-space-xs);
+}
+
+.nexus-terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.nexus-terminal-dot.red {
+    background: var(--nexus-error);
+}
+
+.nexus-terminal-dot.yellow {
+    background: var(--nexus-warning);
+}
+
+.nexus-terminal-dot.green {
+    background: var(--nexus-success);
+}
+
+.nexus-terminal-title {
+    margin-left: auto;
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-sm);
+    color: var(--nexus-text-secondary);
+}
+
+.nexus-terminal-body {
+    padding: var(--nexus-space-md);
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-sm);
+    line-height: var(--nexus-leading-relaxed);
+    color: var(--nexus-success);
+}
+
+.nexus-terminal-prompt {
+    color: var(--nexus-primary);
+}
+
+.nexus-terminal-command {
+    color: var(--nexus-text-primary);
+}
+
+.nexus-terminal-output {
+    color: var(--nexus-text-secondary);
+    margin-left: var(--nexus-space-md);
+}
+
+/* === TECH BADGES === */
+
+.nexus-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--nexus-space-xs) var(--nexus-space-sm);
+    background: var(--nexus-bg-secondary);
+    border: var(--nexus-border-width) solid var(--nexus-border);
+    border-radius: var(--nexus-radius-md);
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-xs);
+    font-weight: var(--nexus-font-medium);
+    color: var(--nexus-text-secondary);
+    text-decoration: none;
+    transition: all var(--nexus-transition-fast);
+}
+
+.nexus-badge:hover {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--nexus-shadow-md);
+}
+
+.nexus-badge.primary {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    border-color: var(--nexus-primary);
+}
+
+.nexus-badge.success {
+    background: var(--nexus-success);
+    color: var(--nexus-bg-primary);
+    border-color: var(--nexus-success);
+}
+
+.nexus-badge.warning {
+    background: var(--nexus-warning);
+    color: var(--nexus-bg-primary);
+    border-color: var(--nexus-warning);
+}
+
+.nexus-badge.error {
+    background: var(--nexus-error);
+    color: var(--nexus-bg-primary);
+    border-color: var(--nexus-error);
+}
+
+/* === API DOCUMENTATION COMPONENT === */
+
+.nexus-api-doc {
+    margin: var(--nexus-space-lg) 0;
+    background: var(--nexus-bg-secondary);
+    border: var(--nexus-border-width) solid var(--nexus-border);
+    border-radius: var(--nexus-radius-lg);
+    overflow: hidden;
+}
+
+.nexus-api-header {
+    display: flex;
+    align-items: center;
+    gap: var(--nexus-space-md);
+    padding: var(--nexus-space-md);
+    background: var(--nexus-bg-tertiary);
+    border-bottom: var(--nexus-border-width) solid var(--nexus-border);
+}
+
+.nexus-api-method {
+    padding: var(--nexus-space-xs) var(--nexus-space-sm);
+    border-radius: var(--nexus-radius-sm);
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-xs);
+    font-weight: var(--nexus-font-bold);
+    text-transform: uppercase;
+}
+
+.nexus-api-method.get {
+    background: var(--nexus-success);
+    color: var(--nexus-bg-primary);
+}
+
+.nexus-api-method.post {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+}
+
+.nexus-api-method.put {
+    background: var(--nexus-warning);
+    color: var(--nexus-bg-primary);
+}
+
+.nexus-api-method.delete {
+    background: var(--nexus-error);
+    color: var(--nexus-bg-primary);
+}
+
+.nexus-api-endpoint {
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-base);
+    color: var(--nexus-text-primary);
+}
+
+.nexus-api-body {
+    padding: var(--nexus-space-md);
+}
+
+.nexus-api-description {
+    margin-bottom: var(--nexus-space-md);
+    color: var(--nexus-text-secondary);
+    line-height: var(--nexus-leading-normal);
+}
+
+/* === PROGRESS INDICATORS === */
+
+.nexus-progress {
+    width: 100%;
+    height: 4px;
+    background: var(--nexus-bg-tertiary);
+    border-radius: var(--nexus-radius-sm);
+    overflow: hidden;
+}
+
+.nexus-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--nexus-primary), var(--nexus-accent));
+    border-radius: var(--nexus-radius-sm);
+    transition: width var(--nexus-transition-normal);
+}
+
+.nexus-progress.glow .nexus-progress-bar {
+    box-shadow: 0 0 10px var(--nexus-primary);
+}
+
+/* === LOADING ANIMATIONS === */
+
+.nexus-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--nexus-bg-tertiary);
+    border-top: 2px solid var(--nexus-primary);
+    border-radius: 50%;
+    animation: nexus-spin 1s linear infinite;
+}
+
+@keyframes nexus-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.nexus-pulse {
+    animation: nexus-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes nexus-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* === GLOW EFFECTS === */
+
+.nexus-glow {
+    box-shadow: var(--nexus-shadow-glow);
+}
+
+.nexus-text-glow {
+    text-shadow: 0 0 10px var(--nexus-primary);
+}
+
+/* === GRID SYSTEM === */
+
+.nexus-grid {
+    display: grid;
+    gap: var(--nexus-space-lg);
+}
+
+.nexus-grid.cols-1 { grid-template-columns: 1fr; }
+.nexus-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.nexus-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.nexus-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 768px) {
+    .nexus-grid.cols-2,
+    .nexus-grid.cols-3,
+    .nexus-grid.cols-4 {
+        grid-template-columns: 1fr;
+    }
+}
