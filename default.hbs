@@ -34,9 +34,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-mobile-optimization.css"}}" />
     
     {{!-- Nexus Advanced Features v3.0 --}}
+    {{#if @custom.advanced_features}}
     <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-accessibility.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-performance-optimization.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-admin-customization.css"}}" />
+    {{/if}}
 
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
@@ -165,11 +167,13 @@
 <script src="{{asset "js/nexus-mobile-gestures.js"}}"></script>
 
 {{!-- Nexus Advanced Features v3.0 --}}
+{{#if @custom.advanced_features}}
 <script src="{{asset "js/nexus-build-optimizer.js"}}"></script>
 <script src="{{asset "js/nexus-accessibility.js"}}"></script>
 <script src="{{asset "js/nexus-performance.js"}}"></script>
 <script src="{{asset "js/nexus-seo-optimizer.js"}}"></script>
 <script src="{{asset "js/nexus-admin-customization.js"}}"></script>
+{{/if}}
 
 {{!-- Mode Toggle Script --}}
 <script>
@@ -309,41 +313,40 @@ $(document).ready(function () {
 <script>
 // Configuration for Nexus Advanced Features
 window.nexusSEOConfig = {
-    enableStructuredData: true,
+    enableStructuredData: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
     enableAnalytics: {{#if @custom.analytics_id}}true{{else}}false{{/if}},
-    enableMetaTags: true,
+    enableMetaTags: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
     enableMultilingual: false,
     {{#if @custom.analytics_id}}analyticsId: '{{@custom.analytics_id}}',{{/if}}
-    {{#if @custom.gtm_id}}gtmId: '{{@custom.gtm_id}}',{{/if}}
     language: '{{@site.locale}}',
     alternateLanguages: []
 };
 
 window.nexusAccessibilityConfig = {
-    enableKeyboardShortcuts: true,
-    enableScreenReader: true,
-    enableHighContrast: true,
+    enableKeyboardShortcuts: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableScreenReader: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableHighContrast: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
     enableReducedMotion: true,
-    enableFocusManagement: true
+    enableFocusManagement: {{#if @custom.advanced_features}}true{{else}}false{{/if}}
 };
 
 window.nexusPerformanceConfig = {
-    enableLazyLoading: true,
-    enableCoreWebVitals: true,
-    enableImageOptimization: true,
-    enableCSSOptimization: true,
+    enableLazyLoading: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableCoreWebVitals: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableImageOptimization: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableCSSOptimization: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
     observerRootMargin: '50px',
     lazyImageClass: 'lazy-image',
     lazyBackgroundClass: 'lazy-background'
 };
 
 window.nexusAdminConfig = {
-    enableColorCustomization: true,
-    enableEffectToggles: true,
-    enableTemplateSelection: true,
-    enableTagStyles: true,
-    enablePresets: true,
-    enableExportImport: true,
+    enableColorCustomization: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableEffectToggles: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableTemplateSelection: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableTagStyles: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enablePresets: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
+    enableExportImport: {{#if @custom.advanced_features}}true{{else}}false{{/if}},
     autoSave: true,
     storageKey: 'nexus-customization-v3'
 };

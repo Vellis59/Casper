@@ -102,7 +102,7 @@ into the {body} tag of the default.hbs template --}}
 {{#if access}}
     <section class="footer-cta outer">
         <div class="inner">
-            {{#if @custom.email_signup_text}}<h2 class="footer-cta-title">{{@custom.email_signup_text}}</h2>{{/if}}
+<h2 class="footer-cta-title">Join the tech community - get the latest updates.</h2>
             <a class="footer-cta-button" href="#/portal" data-portal>
                 <div class="footer-cta-input">Enter your email</div>
                 <span>Subscribe</span>
@@ -116,7 +116,7 @@ into the {body} tag of the default.hbs template --}}
 
 
 {{!-- Read more links, just above the footer --}}
-{{#if @custom.show_recent_posts_footer}}
+
     {{!-- The {#get} helper below fetches some of the latest posts here
     so that people have something else to read when they finish this one.
 
@@ -135,6 +135,5 @@ into the {body} tag of the default.hbs template --}}
         {{/if}}
 
     {{/get}}
-{{/if}}
 
 {{/post}}

@@ -67,7 +67,7 @@
         "autoprefixer": "10.4.7",
         "beeper": "2.1.0",
         "cssnano": "5.1.12",
-        "gscan": "4.49.1",
+        "gscan": "^5.1.0",
         "gulp": "4.0.2",
         "gulp-concat": "2.6.1",
         "gulp-livereload": "4.0.2",
@@ -111,7 +111,7 @@
                 "type": "select",
                 "options": [
                     "Logo on cover",
-                    "Logo in the middle", 
+                    "Logo in the middle",
                     "Stacked"
                 ],
                 "default": "Logo on cover"
@@ -141,13 +141,11 @@
                     "JetBrains Mono",
                     "SF Mono"
                 ],
-                "default": "Fira Code",
-                "group": "tech"
+                "default": "Fira Code"
             },
             "show_publication_cover": {
                 "type": "boolean",
-                "default": true,
-                "group": "homepage"
+                "default": true
             },
             "header_style": {
                 "type": "select",
@@ -156,8 +154,7 @@
                     "Left aligned",
                     "Hidden"
                 ],
-                "default": "Center aligned",
-                "group": "homepage"
+                "default": "Center aligned"
             },
             "feed_layout": {
                 "type": "select",
@@ -167,8 +164,7 @@
                     "Grid",
                     "List"
                 ],
-                "default": "Tech Cards",
-                "group": "homepage"
+                "default": "Tech Cards"
             },
             "color_scheme": {
                 "type": "select",
@@ -186,8 +182,7 @@
                     "GitHub Dark",
                     "VS Code Dark"
                 ],
-                "default": "Nexus Dark",
-                "group": "tech"
+                "default": "Nexus Dark"
             },
             "post_image_style": {
                 "type": "select",
@@ -197,83 +192,43 @@
                     "Small",
                     "Hidden"
                 ],
-                "default": "Wide",
-                "group": "post"
+                "default": "Wide"
             },
             "show_code_line_numbers": {
                 "type": "boolean",
-                "default": true,
-                "group": "tech"
+                "default": true
             },
             "enable_code_copy": {
-                "type": "boolean", 
-                "default": true,
-                "group": "tech"
+                "type": "boolean",
+                "default": true
             },
             "show_reading_progress": {
                 "type": "boolean",
-                "default": true,
-                "group": "post"
+                "default": true
             },
             "enable_tech_badges": {
                 "type": "boolean",
-                "default": true,
-                "group": "tech"
-            },
-            "email_signup_text": {
-                "type": "text",
-                "default": "Join the tech community - get the latest updates.",
-                "group": "post"
-            },
-            "show_recent_posts_footer": {
-                "type": "boolean",
-                "default": true,
-                "group": "post"
+                "default": true
             },
             "github_username": {
                 "type": "text",
-                "default": "",
-                "group": "social"
+                "default": ""
             },
             "twitter_username": {
-                "type": "text", 
-                "default": "",
-                "group": "social"
+                "type": "text",
+                "default": ""
             },
             "linkedin_username": {
                 "type": "text",
-                "default": "",
-                "group": "social"
+                "default": ""
             },
             "analytics_id": {
                 "type": "text",
-                "default": "",
-                "group": "analytics"
+                "default": ""
             },
-            "gtm_id": {
-                "type": "text",
-                "default": "",
-                "group": "analytics"
-            },
-            "enable_accessibility": {
+            "advanced_features": {
                 "type": "boolean",
-                "default": true,
-                "group": "accessibility"
-            },
-            "enable_performance_monitoring": {
-                "type": "boolean",
-                "default": true,
-                "group": "performance"
-            },
-            "enable_admin_customization": {
-                "type": "boolean",
-                "default": true,
-                "group": "customization"
-            },
-            "enable_seo_optimization": {
-                "type": "boolean",
-                "default": true,
-                "group": "seo"
+                "default": true
             }
         }
     },
