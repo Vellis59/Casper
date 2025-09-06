@@ -3,12 +3,7 @@
 
 /* Override viewport to create sidebar layout - ONLY for homepage */
 .home-template .viewport {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas: 
-        "sidebar main"
-        "sidebar footer";
+    display: block;
     min-height: 100vh;
     background: var(--nexus-bg-primary);
     overflow-x: hidden;
@@ -19,9 +14,14 @@
     display: none;
 }
 
+/* Hide sidebar by default */
+.nexus-sidebar {
+    display: none;
+}
+
 /* Revolutionary Sidebar Navigation - Only on homepage */
 .home-template .nexus-sidebar {
-    grid-area: sidebar;
+    display: block;
     position: fixed;
     left: 0;
     top: 0;
@@ -33,11 +33,6 @@
     overflow-y: auto;
     z-index: 1000;
     box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
-}
-
-/* Hide sidebar on non-homepage templates */
-.nexus-sidebar {
-    display: none;
 }
 
 /* Animated Logo/Brand */
@@ -177,7 +172,6 @@
 
 /* Main Content Area - Asymmetric Grid - Only on homepage */
 .home-template .site-content {
-    grid-area: main;
     margin-left: 280px;
     padding: var(--nexus-space-2xl);
     background: var(--nexus-bg-primary);
@@ -285,13 +279,6 @@
 
 /* Mobile Responsive - Only for homepage */
 @media (max-width: 1024px) {
-    .home-template .viewport {
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "main"
-            "footer";
-    }
-    
     .home-template .nexus-sidebar {
         transform: translateX(-100%);
         transition: transform var(--nexus-transition-normal);
