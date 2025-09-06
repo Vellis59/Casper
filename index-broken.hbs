@@ -226,8 +226,8 @@
                          alt="{{name}}" 
                          class="nexus-author-avatar">
                     {{else}}
-                    <div class="nexus-author-avatar" style="background: var(--nexus-primary); display: flex; align-items: center; justify-content: center; color: var(--nexus-bg-primary); font-weight: bold;">
-                        {{initials name}}
+                    <div class="nexus-author-avatar nexus-default-avatar" data-author-name="{{name}}" style="background: var(--nexus-primary); display: flex; align-items: center; justify-content: center; color: var(--nexus-bg-primary); font-weight: bold;">
+                        ?
                     </div>
                     {{/if}}
                     <div class="nexus-author-info">
@@ -316,12 +316,30 @@ function generateMatrixBackground() {
     }
 }
 
+// Generate Author Initials
+function generateAuthorInitials() {
+    const avatars = document.querySelectorAll('.nexus-default-avatar[data-author-name]');
+    avatars.forEach(avatar => {
+        const name = avatar.getAttribute('data-author-name');
+        if (name) {
+            const initials = name.split(' ')
+                .map(word => word.charAt(0).toUpperCase())
+                .join('')
+                .substring(0, 2);
+            avatar.textContent = initials || '?';
+        }
+    });
+}
+
 // Card Loading Animation
 document.addEventListener('DOMContentLoaded', function() {
     // Generate all particles
     generateHeroParticles();
     generateCardParticles();
     generateMatrixBackground();
+    
+    // Generate author initials
+    generateAuthorInitials();
     
     // Animate loading cards
     const cards = document.querySelectorAll('.nexus-card.loading');
