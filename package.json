@@ -13,9 +13,17 @@
     },
     "scripts": {
         "dev": "gulp",
+        "build": "gulp build",
+        "build:optimize": "gulp build --optimize",
+        "build:production": "NODE_ENV=production gulp build --optimize --minify",
         "zip": "gulp zip",
+        "zip:optimized": "npm run build:production && gulp zip",
         "test": "gscan .",
         "test:ci": "gscan --fatal --verbose .",
+        "test:accessibility": "npm run build && node scripts/test-accessibility.js",
+        "test:performance": "npm run build && node scripts/test-performance.js",
+        "optimize": "node scripts/optimize-assets.js",
+        "analyze": "npm run build && node scripts/analyze-bundle.js",
         "pretest": "gulp build",
         "preship": "yarn test",
         "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
@@ -236,6 +244,36 @@
                 "type": "text",
                 "default": "",
                 "group": "social"
+            },
+            "analytics_id": {
+                "type": "text",
+                "default": "",
+                "group": "analytics"
+            },
+            "gtm_id": {
+                "type": "text",
+                "default": "",
+                "group": "analytics"
+            },
+            "enable_accessibility": {
+                "type": "boolean",
+                "default": true,
+                "group": "accessibility"
+            },
+            "enable_performance_monitoring": {
+                "type": "boolean",
+                "default": true,
+                "group": "performance"
+            },
+            "enable_admin_customization": {
+                "type": "boolean",
+                "default": true,
+                "group": "customization"
+            },
+            "enable_seo_optimization": {
+                "type": "boolean",
+                "default": true,
+                "group": "seo"
             }
         }
     },

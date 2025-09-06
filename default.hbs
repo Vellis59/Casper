@@ -32,6 +32,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-visual-effects.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-special-modes.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-mobile-optimization.css"}}" />
+    
+    {{!-- Nexus Advanced Features v3.0 --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-accessibility.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-performance-optimization.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-admin-customization.css"}}" />
 
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
@@ -158,6 +163,13 @@
 <script src="{{asset "js/nexus-tech.js"}}"></script>
 <script src="{{asset "js/nexus-helpers.js"}}"></script>
 <script src="{{asset "js/nexus-mobile-gestures.js"}}"></script>
+
+{{!-- Nexus Advanced Features v3.0 --}}
+<script src="{{asset "js/nexus-build-optimizer.js"}}"></script>
+<script src="{{asset "js/nexus-accessibility.js"}}"></script>
+<script src="{{asset "js/nexus-performance.js"}}"></script>
+<script src="{{asset "js/nexus-seo-optimizer.js"}}"></script>
+<script src="{{asset "js/nexus-admin-customization.js"}}"></script>
 
 {{!-- Mode Toggle Script --}}
 <script>
@@ -291,6 +303,86 @@ $(document).ready(function () {
     // FitVids - Makes video embeds responsive
     $(".gh-content").fitVids();
 });
+</script>
+
+{{!-- Nexus Advanced Features Configuration --}}
+<script>
+// Configuration for Nexus Advanced Features
+window.nexusSEOConfig = {
+    enableStructuredData: true,
+    enableAnalytics: {{#if @custom.analytics_id}}true{{else}}false{{/if}},
+    enableMetaTags: true,
+    enableMultilingual: false,
+    {{#if @custom.analytics_id}}analyticsId: '{{@custom.analytics_id}}',{{/if}}
+    {{#if @custom.gtm_id}}gtmId: '{{@custom.gtm_id}}',{{/if}}
+    language: '{{@site.locale}}',
+    alternateLanguages: []
+};
+
+window.nexusAccessibilityConfig = {
+    enableKeyboardShortcuts: true,
+    enableScreenReader: true,
+    enableHighContrast: true,
+    enableReducedMotion: true,
+    enableFocusManagement: true
+};
+
+window.nexusPerformanceConfig = {
+    enableLazyLoading: true,
+    enableCoreWebVitals: true,
+    enableImageOptimization: true,
+    enableCSSOptimization: true,
+    observerRootMargin: '50px',
+    lazyImageClass: 'lazy-image',
+    lazyBackgroundClass: 'lazy-background'
+};
+
+window.nexusAdminConfig = {
+    enableColorCustomization: true,
+    enableEffectToggles: true,
+    enableTemplateSelection: true,
+    enableTagStyles: true,
+    enablePresets: true,
+    enableExportImport: true,
+    autoSave: true,
+    storageKey: 'nexus-customization-v3'
+};
+
+// Initialize features when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Initializing Nexus Advanced Features v3.0...');
+    
+    // Features are auto-initialized by their respective scripts
+    // This ensures proper loading order and dependency management
+    
+    // Add performance monitoring
+    if ('performance' in window) {
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const navigationTiming = performance.getEntriesByType('navigation')[0];
+                if (navigationTiming) {
+                    console.log('📊 Page Performance:', {
+                        loadTime: navigationTiming.loadEventEnd - navigationTiming.fetchStart,
+                        domReady: navigationTiming.domContentLoadedEventEnd - navigationTiming.fetchStart,
+                        ttfb: navigationTiming.responseStart - navigationTiming.requestStart
+                    });
+                }
+            }, 1000);
+        });
+    }
+});
+
+// Add Web Vitals library for Core Web Vitals monitoring
+(function() {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js';
+    script.onload = function() {
+        if (window.webVitals && window.NexusPerformance) {
+            console.log('📈 Web Vitals library loaded successfully');
+        }
+    };
+    document.head.appendChild(script);
+})();
 </script>
 
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}

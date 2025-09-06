@@ -1,0 +1,455 @@
+/* Nexus Accessibility Features
+/* ---------------------------------------------------------- */
+
+/* === SYSTEM PREFERENCES DETECTION === */
+
+/* High Contrast Mode */
+@media (prefers-contrast: high), (prefers-contrast: more) {
+    :root {
+        --nexus-primary: #00ffff;
+        --nexus-accent: #ffff00;
+        --nexus-text-primary: #ffffff;
+        --nexus-text-secondary: #e0e0e0;
+        --nexus-bg-primary: #000000;
+        --nexus-bg-secondary: #1a1a1a;
+        --nexus-border: #ffffff;
+    }
+    
+    .nexus-card,
+    .nexus-sidebar,
+    .nexus-hero {
+        border: 2px solid var(--nexus-primary);
+        background: var(--nexus-bg-primary) !important;
+    }
+    
+    /* Remove subtle effects that reduce contrast */
+    .nexus-glass,
+    .nexus-glass-dark {
+        backdrop-filter: none !important;
+        background: var(--nexus-bg-secondary) !important;
+    }
+}
+
+/* Reduced Motion - Already partially implemented, enhancing */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Completely hide decorative animations */
+    .nexus-particles,
+    .nexus-matrix-bg,
+    .nexus-scanlines,
+    .nexus-energy-orb,
+    .nexus-card-particles {
+        display: none !important;
+    }
+    
+    /* Keep functional animations but make them instant */
+    .nexus-sidebar {
+        transition: transform 0.01ms !important;
+    }
+}
+
+/* Color Scheme Preference */
+@media (prefers-color-scheme: light) {
+    .auto-color {
+        --nexus-bg-primary: #ffffff;
+        --nexus-bg-secondary: #f8f9fa;
+        --nexus-bg-tertiary: #e9ecef;
+        --nexus-text-primary: #212529;
+        --nexus-text-secondary: #495057;
+        --nexus-text-muted: #6c757d;
+        --nexus-border: #dee2e6;
+        --nexus-primary: #0066cc;
+        --nexus-accent: #dc3545;
+    }
+}
+
+/* === HIGH READABILITY MODE === */
+
+.nexus-high-readability {
+    /* Typography optimization */
+    font-family: 'Arial', 'Helvetica Neue', sans-serif !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.02em !important;
+}
+
+.nexus-high-readability * {
+    font-family: inherit !important;
+}
+
+.nexus-high-readability .nexus-card-title,
+.nexus-high-readability h1,
+.nexus-high-readability h2,
+.nexus-high-readability h3 {
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+.nexus-high-readability .nexus-card-excerpt,
+.nexus-high-readability p {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 1.2em !important;
+}
+
+/* High contrast colors */
+.nexus-high-readability {
+    --nexus-text-primary: #000000;
+    --nexus-text-secondary: #333333;
+    --nexus-bg-primary: #ffffff;
+    --nexus-bg-secondary: #f5f5f5;
+    --nexus-primary: #0066cc;
+    --nexus-accent: #cc0000;
+}
+
+.nexus-high-readability .nexus-card {
+    border: 3px solid var(--nexus-primary) !important;
+    background: var(--nexus-bg-primary) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Remove all visual effects that could distract */
+.nexus-high-readability .nexus-particles,
+.nexus-high-readability .nexus-matrix-bg,
+.nexus-high-readability .nexus-scanlines,
+.nexus-high-readability .nexus-energy-orb,
+.nexus-high-readability .nexus-neon-primary,
+.nexus-high-readability .nexus-glow {
+    display: none !important;
+}
+
+/* === KEYBOARD NAVIGATION === */
+
+/* Enhanced focus indicators */
+:focus {
+    outline: 3px solid var(--nexus-primary) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 6px rgba(0, 212, 255, 0.3) !important;
+}
+
+/* Focus within for containers */
+:focus-within {
+    outline: 2px solid var(--nexus-accent);
+    outline-offset: 1px;
+}
+
+/* Skip to content link */
+.nexus-skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 10001;
+    font-weight: bold;
+    transition: top 0.2s ease;
+}
+
+.nexus-skip-link:focus {
+    top: 6px;
+}
+
+/* Focusable elements styling */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+    outline: 3px solid var(--nexus-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px rgba(0, 212, 255, 0.3);
+}
+
+/* Focus indicators for custom elements */
+.nexus-nav-link:focus,
+.nexus-card:focus,
+.nexus-mobile-toggle:focus {
+    transform: scale(1.02);
+    z-index: 100;
+}
+
+/* Keyboard shortcuts help */
+.nexus-keyboard-help {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--nexus-bg-tertiary);
+    border: 2px solid var(--nexus-primary);
+    border-radius: 8px;
+    padding: 12px;
+    max-width: 300px;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.nexus-keyboard-help.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nexus-keyboard-help h4 {
+    margin: 0 0 8px 0;
+    color: var(--nexus-primary);
+}
+
+.nexus-keyboard-help ul {
+    margin: 0;
+    padding-left: 16px;
+    list-style: none;
+}
+
+.nexus-keyboard-help li {
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nexus-keyboard-help .key {
+    background: var(--nexus-bg-secondary);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+    border: 1px solid var(--nexus-border);
+}
+
+/* === SCREEN READER SUPPORT === */
+
+/* Visually hidden but accessible to screen readers */
+.nexus-sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Show on focus for keyboard users */
+.nexus-sr-only:focus {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0.25rem !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    border-radius: 4px;
+}
+
+/* Live regions for dynamic content */
+.nexus-live-region {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* === ACCESSIBILITY TOGGLE BAR === */
+
+.nexus-accessibility-bar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    background: var(--nexus-bg-tertiary);
+    border: 2px solid var(--nexus-primary);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 8px 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 10001;
+    transition: transform 0.3s ease;
+}
+
+.nexus-accessibility-bar.visible {
+    transform: translateX(-50%) translateY(0);
+}
+
+.nexus-a11y-btn {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.nexus-a11y-btn:hover,
+.nexus-a11y-btn:focus {
+    background: var(--nexus-accent);
+    transform: scale(1.05);
+}
+
+.nexus-a11y-btn.active {
+    background: var(--nexus-accent);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* === FONT SIZE CONTROLS === */
+
+.nexus-font-size-small {
+    font-size: 14px !important;
+}
+
+.nexus-font-size-normal {
+    font-size: 16px !important;
+}
+
+.nexus-font-size-large {
+    font-size: 18px !important;
+}
+
+.nexus-font-size-xlarge {
+    font-size: 20px !important;
+}
+
+.nexus-font-size-small *,
+.nexus-font-size-normal *,
+.nexus-font-size-large *,
+.nexus-font-size-xlarge * {
+    font-size: inherit !important;
+}
+
+/* Scale headings proportionally */
+.nexus-font-size-large h1 { font-size: 2.2em !important; }
+.nexus-font-size-large h2 { font-size: 1.8em !important; }
+.nexus-font-size-large h3 { font-size: 1.5em !important; }
+
+.nexus-font-size-xlarge h1 { font-size: 2.5em !important; }
+.nexus-font-size-xlarge h2 { font-size: 2.1em !important; }
+.nexus-font-size-xlarge h3 { font-size: 1.7em !important; }
+
+/* === PRINT STYLES === */
+
+@media print {
+    .nexus-sidebar,
+    .nexus-mobile-toggle,
+    .nexus-accessibility-bar,
+    .nexus-particles,
+    .nexus-matrix-bg,
+    .nexus-mode-toggle {
+        display: none !important;
+    }
+    
+    .home-template .site-content {
+        margin-left: 0 !important;
+    }
+    
+    .nexus-card {
+        break-inside: avoid;
+        border: 1px solid #000;
+        margin-bottom: 1rem;
+    }
+    
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+}
+
+/* === DYSLEXIA-FRIENDLY FONT === */
+
+.nexus-dyslexia-font {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', cursive !important;
+}
+
+.nexus-dyslexia-font * {
+    font-family: inherit !important;
+}
+
+/* === MOTION SENSITIVITY === */
+
+.nexus-reduce-motion * {
+    animation: none !important;
+    transition: none !important;
+}
+
+.nexus-reduce-motion .nexus-particles,
+.nexus-reduce-motion .nexus-matrix-bg,
+.nexus-reduce-motion .nexus-scanlines {
+    display: none !important;
+}
+
+/* === COGNITIVE ACCESSIBILITY === */
+
+.nexus-cognitive-mode {
+    /* Simplify layouts */
+}
+
+.nexus-cognitive-mode .nexus-post-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+}
+
+.nexus-cognitive-mode .nexus-card {
+    padding: 2rem !important;
+    border: 3px solid var(--nexus-primary) !important;
+}
+
+.nexus-cognitive-mode .nexus-hero {
+    padding: 2rem !important;
+}
+
+/* Hide decorative elements */
+.nexus-cognitive-mode .nexus-particles,
+.nexus-cognitive-mode .nexus-matrix-bg,
+.nexus-cognitive-mode .nexus-energy-orb,
+.nexus-cognitive-mode .nexus-terminal-section {
+    display: none !important;
+}
+
+/* === COLOR BLIND ACCESSIBILITY === */
+
+.nexus-colorblind-friendly {
+    --nexus-primary: #0073e6;
+    --nexus-accent: #ff6b00;
+    --nexus-success: #00a86b;
+    --nexus-warning: #ffb000;
+    --nexus-error: #d73527;
+}
+
+/* Use patterns in addition to colors */
+.nexus-colorblind-friendly .nexus-card.featured::before {
+    content: '⭐';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+}
+
+.nexus-colorblind-friendly .nexus-tag {
+    border-left: 4px solid currentColor;
+    padding-left: 8px;
+}

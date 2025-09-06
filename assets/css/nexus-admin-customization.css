@@ -1,0 +1,673 @@
+/*
+ * Nexus Admin Customization CSS
+ * Advanced admin panel and customization system
+ * Version: 3.0.0
+ */
+
+/* ========================================
+   ADMIN CUSTOMIZATION PANEL
+   ======================================== */
+
+.nexus-admin-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    z-index: 99999;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.nexus-admin-panel.open {
+    right: 0;
+}
+
+.nexus-admin-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nexus-admin-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nexus-admin-panel::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+/* Dark mode admin panel */
+@media (prefers-color-scheme: dark) {
+    .nexus-admin-panel {
+        background: rgba(20, 20, 20, 0.98);
+        border-left-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+    }
+}
+
+/* ========================================
+   ADMIN PANEL HEADER
+   ======================================== */
+
+.nexus-admin-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.nexus-admin-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nexus-admin-subtitle {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.nexus-admin-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.nexus-admin-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   ADMIN PANEL SECTIONS
+   ======================================== */
+
+.nexus-admin-section {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nexus-admin-section:last-child {
+    border-bottom: none;
+}
+
+.nexus-admin-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: var(--color-darkgrey, #15171a);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .nexus-admin-section-title {
+        color: #ffffff;
+    }
+}
+
+/* ========================================
+   COLOR CUSTOMIZATION PANEL
+   ======================================== */
+
+.nexus-color-palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.nexus-color-item {
+    text-align: center;
+}
+
+.nexus-color-preview {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    margin: 0 auto 8px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-color-preview:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nexus-color-preview.active {
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3);
+}
+
+.nexus-color-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-midgrey, #738a94);
+    margin: 0;
+}
+
+/* Custom color picker */
+.nexus-custom-color {
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.nexus-color-input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.nexus-hex-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ========================================
+   EFFECT TOGGLES
+   ======================================== */
+
+.nexus-effect-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nexus-effect-toggle:last-child {
+    border-bottom: none;
+}
+
+.nexus-effect-info {
+    flex: 1;
+}
+
+.nexus-effect-name {
+    font-weight: 500;
+    margin: 0 0 4px 0;
+    color: var(--color-darkgrey, #15171a);
+}
+
+.nexus-effect-desc {
+    font-size: 12px;
+    color: var(--color-midgrey, #738a94);
+    margin: 0;
+}
+
+/* Toggle Switch */
+.nexus-toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background-color: #ccc;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nexus-toggle-switch.active {
+    background-color: #667eea;
+}
+
+.nexus-toggle-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nexus-toggle-switch.active .nexus-toggle-knob {
+    transform: translateX(24px);
+}
+
+/* ========================================
+   TEMPLATE CUSTOMIZATION
+   ======================================== */
+
+.nexus-template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.nexus-template-item {
+    aspect-ratio: 3/4;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    background: var(--color-lightgrey, #f4f4f4);
+}
+
+.nexus-template-item:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nexus-template-item.active {
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3);
+}
+
+.nexus-template-preview {
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+                linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+                linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+}
+
+.nexus-template-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================
+   TAG STYLES CUSTOMIZATION
+   ======================================== */
+
+.nexus-tag-styles {
+    margin: 15px 0;
+}
+
+.nexus-tag-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
+
+.nexus-sample-tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nexus-sample-tag:hover {
+    transform: translateY(-1px);
+}
+
+/* Tag style variations */
+.tag-style-pill {
+    border-radius: 20px;
+    background: var(--tag-bg, #f0f0f0);
+    color: var(--tag-color, #333);
+}
+
+.tag-style-rounded {
+    border-radius: 6px;
+    background: var(--tag-bg, #f0f0f0);
+    color: var(--tag-color, #333);
+}
+
+.tag-style-sharp {
+    border-radius: 0;
+    background: var(--tag-bg, #f0f0f0);
+    color: var(--tag-color, #333);
+}
+
+.tag-style-outline {
+    border-radius: 20px;
+    background: transparent;
+    color: var(--tag-color, #333);
+    border: 1px solid var(--tag-color, #333);
+}
+
+.tag-style-gradient {
+    border-radius: 20px;
+    background: linear-gradient(45deg, var(--tag-bg, #667eea), var(--tag-accent, #764ba2));
+    color: white;
+}
+
+/* ========================================
+   ADMIN TOGGLE BUTTON
+   ======================================== */
+
+.nexus-admin-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    z-index: 99998;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.nexus-admin-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.nexus-admin-toggle.active {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ========================================
+   CUSTOMIZATION PRESETS
+   ======================================== */
+
+.nexus-presets {
+    margin: 15px 0;
+}
+
+.nexus-preset-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nexus-preset-item:hover {
+    background: rgba(102, 126, 234, 0.05);
+    border-color: #667eea;
+}
+
+.nexus-preset-info {
+    flex: 1;
+}
+
+.nexus-preset-name {
+    font-weight: 500;
+    margin: 0 0 4px 0;
+}
+
+.nexus-preset-desc {
+    font-size: 12px;
+    color: var(--color-midgrey, #738a94);
+    margin: 0;
+}
+
+.nexus-preset-colors {
+    display: flex;
+    gap: 4px;
+}
+
+.nexus-preset-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .nexus-admin-panel {
+        width: 100vw;
+        right: -100vw;
+    }
+    
+    .nexus-admin-toggle {
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .nexus-color-palette {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .nexus-template-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========================================
+   ANIMATION STATES
+   ======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.nexus-admin-section {
+    animation: fadeInUp 0.3s ease;
+}
+
+.nexus-admin-panel.open {
+    animation: slideInRight 0.3s ease;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+.nexus-admin-panel:focus-within {
+    outline: 2px solid #667eea;
+    outline-offset: -2px;
+}
+
+.nexus-toggle-switch:focus,
+.nexus-color-preview:focus,
+.nexus-template-item:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+.nexus-admin-toggle:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* ========================================
+   CUSTOM PROPERTIES FOR THEMING
+   ======================================== */
+
+:root {
+    --nexus-admin-primary: #667eea;
+    --nexus-admin-secondary: #764ba2;
+    --nexus-admin-bg: rgba(255, 255, 255, 0.98);
+    --nexus-admin-text: #15171a;
+    --nexus-admin-border: rgba(0, 0, 0, 0.1);
+    --nexus-admin-hover: rgba(102, 126, 234, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --nexus-admin-bg: rgba(20, 20, 20, 0.98);
+        --nexus-admin-text: #ffffff;
+        --nexus-admin-border: rgba(255, 255, 255, 0.1);
+        --nexus-admin-hover: rgba(102, 126, 234, 0.1);
+    }
+}
+
+/* ========================================
+   LIVE PREVIEW STYLES
+   ======================================== */
+
+.nexus-live-preview {
+    position: relative;
+    overflow: hidden;
+}
+
+.nexus-live-preview::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    border: 2px dashed #667eea;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nexus-customizing .nexus-live-preview::after {
+    opacity: 1;
+}
+
+/* ========================================
+   EXPORT/IMPORT STYLES
+   ======================================== */
+
+.nexus-export-import {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nexus-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.nexus-btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.nexus-btn-secondary {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--nexus-admin-text);
+}
+
+.nexus-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nexus-file-input {
+    display: none;
+}
+
+/* ========================================
+   SUCCESS/ERROR NOTIFICATIONS
+   ======================================== */
+
+.nexus-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    z-index: 999999;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.nexus-notification.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nexus-notification.success {
+    background: #10b981;
+    color: white;
+}
+
+.nexus-notification.error {
+    background: #ef4444;
+    color: white;
+}
+
+.nexus-notification.info {
+    background: #3b82f6;
+    color: white;
+}

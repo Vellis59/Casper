@@ -1,0 +1,406 @@
+/*
+ * Nexus Performance Optimization CSS
+ * Advanced CSS optimizations for Core Web Vitals improvement
+ * Version: 3.0.0
+ */
+
+/* ========================================
+   CRITICAL CSS - Above the fold content
+   ======================================== */
+
+/* Critical rendering path optimization */
+.critical-above-fold {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Prevent layout shifts */
+.prevent-cls {
+    width: 100%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+}
+
+/* Image placeholder system */
+.img-placeholder {
+    background-color: var(--color-lightgrey, #f4f4f4);
+    background-image: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.2) 20%, 
+        rgba(255, 255, 255, 0.5) 60%, 
+        rgba(255, 255, 255, 0)
+    );
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    animation: loading 1.2s ease-in-out infinite;
+    border-radius: 4px;
+}
+
+@keyframes loading {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+}
+
+/* Optimized lazy loading containers */
+.lazy-container {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-lightgrey, #f4f4f4);
+}
+
+.lazy-container::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--color-border, #e5e5e5);
+    border-top-color: var(--color-primary, #15171a);
+    border-radius: 50%;
+    animation: spinner 0.8s linear infinite;
+}
+
+.lazy-container.loaded::before {
+    display: none;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   CSS CONTAINMENT for performance
+   ======================================== */
+
+/* Layout containment */
+.post-card {
+    contain: layout style paint;
+}
+
+.site-header {
+    contain: layout style;
+}
+
+.site-footer {
+    contain: layout style;
+}
+
+/* Style containment for dynamic elements */
+.interactive-element {
+    contain: style;
+}
+
+/* Paint containment for visual effects */
+.visual-effect {
+    contain: paint;
+}
+
+/* ========================================
+   FONT OPTIMIZATION
+   ======================================== */
+
+/* Optimized font loading */
+.font-display-swap {
+    font-display: swap;
+}
+
+.font-display-optional {
+    font-display: optional;
+}
+
+.font-display-fallback {
+    font-display: fallback;
+}
+
+/* System font stack for instant rendering */
+.system-font {
+    font-family: 
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+}
+
+/* ========================================
+   CRITICAL RESOURCE HINTS
+   ======================================== */
+
+/* Preload critical resources */
+.preload-critical {
+    visibility: visible;
+    opacity: 1;
+    transform: translateZ(0);
+}
+
+/* GPU acceleration hints */
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* ========================================
+   OPTIMIZED ANIMATIONS
+   ======================================== */
+
+/* Hardware-accelerated transforms only */
+.optimized-animation {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* Reduced motion optimizations */
+@media (prefers-reduced-motion: reduce) {
+    .optimized-animation {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   INTERSECTION OBSERVER HELPERS
+   ======================================== */
+
+.io-root {
+    overflow: hidden;
+}
+
+.io-target {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.io-target.io-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Lazy loading states */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+.lazy-background {
+    background-image: none !important;
+    background-color: var(--color-lightgrey, #f4f4f4);
+}
+
+.lazy-background.loaded {
+    background-color: transparent;
+}
+
+/* ========================================
+   CORE WEB VITALS OPTIMIZATIONS
+   ======================================== */
+
+/* LCP (Largest Contentful Paint) optimizations */
+.lcp-element {
+    contain: layout;
+    content-visibility: auto;
+}
+
+/* FID (First Input Delay) optimizations */
+.interactive-ready {
+    pointer-events: auto;
+    user-select: auto;
+}
+
+.interactive-loading {
+    pointer-events: none;
+    user-select: none;
+}
+
+/* CLS (Cumulative Layout Shift) prevention */
+.cls-stable {
+    position: relative;
+    min-height: 1px;
+}
+
+/* Reserve space for dynamic content */
+.dynamic-content-placeholder {
+    min-height: 100px;
+    background: linear-gradient(90deg, 
+        transparent 25%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ========================================
+   RESOURCE LOADING OPTIMIZATIONS
+   ======================================== */
+
+/* Critical CSS inlining indicator */
+.critical-css-loaded {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Non-critical resource loading */
+.non-critical-resource {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+}
+
+/* Defer non-essential content */
+.defer-render {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
+}
+
+/* ========================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Touch optimization */
+.touch-optimized {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Scroll performance */
+.scroll-optimized {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+    .mobile-optimized {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+    
+    /* Reduce complexity on mobile */
+    .complex-visual {
+        display: none;
+    }
+    
+    .simple-fallback {
+        display: block;
+    }
+}
+
+/* ========================================
+   CRITICAL PATH CSS UTILITIES
+   ======================================== */
+
+/* Above the fold critical elements */
+.atf-critical {
+    position: relative;
+    z-index: 10;
+}
+
+/* Below the fold lazy elements */
+.btf-lazy {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}
+
+/* Performance monitoring helpers */
+.perf-mark {
+    position: relative;
+}
+
+.perf-mark::after {
+    content: attr(data-perf-label);
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 10px;
+    color: #666;
+    display: var(--debug-mode, none);
+}
+
+/* ========================================
+   CSS GRID/FLEXBOX OPTIMIZATIONS
+   ======================================== */
+
+/* Optimized grid containers */
+.perf-grid {
+    display: grid;
+    contain: layout;
+    grid-template-rows: masonry; /* Future CSS feature */
+}
+
+/* Optimized flex containers */
+.perf-flex {
+    display: flex;
+    contain: layout;
+}
+
+/* Subgrid support for better performance */
+.perf-subgrid {
+    display: subgrid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+}
+
+/* ========================================
+   CACHE-FRIENDLY STYLES
+   ======================================== */
+
+/* Cacheable utility classes */
+.u-hidden { display: none !important; }
+.u-visible { display: block !important; }
+.u-opacity-0 { opacity: 0 !important; }
+.u-opacity-100 { opacity: 1 !important; }
+
+/* Performance debugging */
+.debug-performance {
+    border: 2px solid red !important;
+    background: rgba(255, 0, 0, 0.1) !important;
+}
+
+.debug-performance::before {
+    content: 'PERF DEBUG';
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background: red;
+    color: white;
+    padding: 2px 6px;
+    font-size: 10px;
+    z-index: 9999;
+}
+
+/* ========================================
+   PRINT OPTIMIZATIONS
+   ======================================== */
+
+@media print {
+    .no-print { display: none !important; }
+    .print-only { display: block !important; }
+    
+    /* Optimize for print performance */
+    * {
+        background: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+}
