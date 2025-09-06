@@ -1,0 +1,307 @@
+/* Nexus Special Modes - Neon & Matrix
+/* ---------------------------------------------------------- */
+
+/* Neon Mode - Ultra Cyberpunk */
+body.nexus-neon-mode {
+    --nexus-primary: #ff0080;
+    --nexus-secondary: #00ff80;
+    --nexus-accent: #8000ff;
+    --nexus-bg-primary: #000000;
+    --nexus-bg-secondary: #0a0a0a;
+    background: radial-gradient(circle at center, #1a0033 0%, #000000 100%);
+}
+
+body.nexus-neon-mode * {
+    text-shadow: 0 0 10px currentColor;
+}
+
+body.nexus-neon-mode .nexus-card {
+    border: 2px solid var(--nexus-primary);
+    box-shadow: 
+        0 0 20px var(--nexus-primary),
+        0 0 40px var(--nexus-primary),
+        inset 0 0 20px rgba(255, 0, 128, 0.1);
+}
+
+body.nexus-neon-mode .nexus-card:hover {
+    box-shadow: 
+        0 0 30px var(--nexus-primary),
+        0 0 60px var(--nexus-primary),
+        0 0 90px var(--nexus-primary),
+        inset 0 0 30px rgba(255, 0, 128, 0.2);
+}
+
+body.nexus-neon-mode .nexus-sidebar {
+    background: linear-gradient(180deg, 
+        rgba(255, 0, 128, 0.1) 0%, 
+        rgba(128, 0, 255, 0.1) 100%);
+    border-right: 3px solid var(--nexus-primary);
+    box-shadow: 0 0 50px var(--nexus-primary);
+}
+
+body.nexus-neon-mode .nexus-brand-logo {
+    animation: nexus-neon-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes nexus-neon-pulse {
+    0% { 
+        text-shadow: 
+            0 0 5px var(--nexus-primary),
+            0 0 10px var(--nexus-primary),
+            0 0 15px var(--nexus-primary);
+    }
+    100% { 
+        text-shadow: 
+            0 0 10px var(--nexus-primary),
+            0 0 20px var(--nexus-primary),
+            0 0 30px var(--nexus-primary),
+            0 0 40px var(--nexus-primary);
+    }
+}
+
+/* Matrix Mode - Green Digital Rain */
+body.nexus-matrix-mode {
+    --nexus-primary: #00ff00;
+    --nexus-secondary: #008000;
+    --nexus-accent: #00aa00;
+    --nexus-bg-primary: #000000;
+    --nexus-bg-secondary: #001100;
+    --text-primary: #00ff00;
+    --text-secondary: #00aa00;
+    background: linear-gradient(180deg, #000000 0%, #001100 100%);
+    font-family: 'Courier New', monospace;
+}
+
+body.nexus-matrix-mode * {
+    font-family: 'Courier New', monospace !important;
+}
+
+body.nexus-matrix-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent 98%, #00ff00 99%),
+        linear-gradient(180deg, transparent 98%, #00ff00 99%);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+    animation: nexus-matrix-grid 2s linear infinite;
+}
+
+@keyframes nexus-matrix-grid {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+body.nexus-matrix-mode .nexus-card {
+    background: rgba(0, 255, 0, 0.05);
+    border: 1px solid #00ff00;
+    box-shadow: 
+        0 0 10px rgba(0, 255, 0, 0.3),
+        inset 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+body.nexus-matrix-mode .nexus-card-title {
+    animation: nexus-matrix-flicker 0.1s linear infinite;
+}
+
+@keyframes nexus-matrix-flicker {
+    0%, 98% { opacity: 1; }
+    99% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+body.nexus-matrix-mode .nexus-matrix-char {
+    color: #00ff00;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* High Performance Mode - Minimal Effects */
+body.nexus-performance-mode * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+body.nexus-performance-mode .nexus-matrix-bg,
+body.nexus-performance-mode .nexus-particles,
+body.nexus-performance-mode .nexus-card-particles {
+    display: none !important;
+}
+
+/* Accessibility Mode - High Contrast */
+body.nexus-accessibility-mode {
+    --nexus-primary: #ffffff;
+    --nexus-bg-primary: #000000;
+    --nexus-bg-secondary: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+}
+
+body.nexus-accessibility-mode * {
+    text-shadow: none !important;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2) !important;
+}
+
+body.nexus-accessibility-mode .nexus-card {
+    border: 2px solid #ffffff;
+}
+
+/* Retro Mode - 80s Synthwave */
+body.nexus-retro-mode {
+    --nexus-primary: #ff006e;
+    --nexus-secondary: #8338ec;
+    --nexus-accent: #ffbe0b;
+    background: linear-gradient(45deg, #1a0033 0%, #330066 50%, #1a0033 100%);
+}
+
+body.nexus-retro-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(0deg, transparent 24%, rgba(255, 0, 110, 0.05) 25%, rgba(255, 0, 110, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 0, 110, 0.05) 75%, rgba(255, 0, 110, 0.05) 76%, transparent 77%);
+    background-size: 75px 75px;
+    animation: nexus-retro-grid 4s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes nexus-retro-grid {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(75px); }
+}
+
+body.nexus-retro-mode .nexus-card {
+    background: linear-gradient(135deg, 
+        rgba(255, 0, 110, 0.1) 0%, 
+        rgba(131, 56, 236, 0.1) 100%);
+    border: 1px solid #ff006e;
+}
+
+/* Gaming Mode - RGB Effects */
+body.nexus-gaming-mode {
+    background: #000000;
+}
+
+body.nexus-gaming-mode .nexus-card {
+    animation: nexus-rgb-border 2s linear infinite;
+}
+
+@keyframes nexus-rgb-border {
+    0% { border-color: #ff0000; box-shadow: 0 0 20px #ff0000; }
+    16.66% { border-color: #ff8000; box-shadow: 0 0 20px #ff8000; }
+    33.33% { border-color: #ffff00; box-shadow: 0 0 20px #ffff00; }
+    50% { border-color: #00ff00; box-shadow: 0 0 20px #00ff00; }
+    66.66% { border-color: #0080ff; box-shadow: 0 0 20px #0080ff; }
+    83.33% { border-color: #8000ff; box-shadow: 0 0 20px #8000ff; }
+    100% { border-color: #ff0000; box-shadow: 0 0 20px #ff0000; }
+}
+
+body.nexus-gaming-mode .nexus-sidebar {
+    background: linear-gradient(45deg, 
+        rgba(255, 0, 0, 0.1) 0%, 
+        rgba(0, 255, 0, 0.1) 25%,
+        rgba(0, 0, 255, 0.1) 50%,
+        rgba(255, 0, 255, 0.1) 75%,
+        rgba(255, 0, 0, 0.1) 100%);
+    background-size: 400% 400%;
+    animation: nexus-rgb-background 3s ease infinite;
+}
+
+@keyframes nexus-rgb-background {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Minimal Mode - Clean and Simple */
+body.nexus-minimal-mode {
+    --nexus-primary: #007acc;
+    --nexus-bg-primary: #ffffff;
+    --nexus-bg-secondary: #f8f9fa;
+    --nexus-bg-tertiary: #e9ecef;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+}
+
+body.nexus-minimal-mode .nexus-card {
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.nexus-minimal-mode * {
+    animation: none !important;
+    text-shadow: none !important;
+}
+
+body.nexus-minimal-mode .nexus-matrix-bg,
+body.nexus-minimal-mode .nexus-particles,
+body.nexus-minimal-mode .nexus-hologram {
+    display: none !important;
+}
+
+/* Mode Toggle Buttons */
+.nexus-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.nexus-mode-btn {
+    padding: 8px 12px;
+    background: var(--nexus-bg-secondary);
+    border: 1px solid var(--nexus-border);
+    border-radius: var(--nexus-radius-md);
+    color: var(--text-secondary);
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-xs);
+    cursor: pointer;
+    transition: all var(--nexus-transition-fast);
+}
+
+.nexus-mode-btn:hover {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+}
+
+.nexus-mode-btn.active {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    box-shadow: 0 0 15px var(--nexus-primary);
+}
+
+/* Responsive Mode Adjustments */
+@media (max-width: 768px) {
+    body.nexus-neon-mode .nexus-card,
+    body.nexus-matrix-mode .nexus-card,
+    body.nexus-gaming-mode .nexus-card {
+        box-shadow: none;
+        border-width: 1px;
+    }
+    
+    .nexus-mode-toggle {
+        bottom: 10px;
+        right: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 200px;
+    }
+}

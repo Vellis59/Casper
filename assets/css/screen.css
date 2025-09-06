@@ -41,6 +41,18 @@ production stylesheet in assets/built/screen.css
 /* Import Nexus base styling - dark first design */
 @import "nexus-base.css";
 
+/* Import Revolutionary Layout System */
+@import "nexus-layout-revolution.css";
+
+/* Import Futuristic Cards Design */
+@import "nexus-futuristic-cards.css";
+
+/* Import Advanced Visual Effects */
+@import "nexus-visual-effects.css";
+
+/* Import Special Modes (Neon, Matrix, Gaming, etc.) */
+@import "nexus-special-modes.css";
+
 :root {
     /* Legacy Casper colors - kept for compatibility */
     --color-green: var(--nexus-success);

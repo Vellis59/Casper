@@ -125,6 +125,16 @@
 </div>
 {{/if}}
 
+{{!-- Mode Toggle Controls --}}
+<div class="nexus-mode-toggle">
+    <button class="nexus-mode-btn" onclick="toggleMode('default')" title="Default Mode">🏠</button>
+    <button class="nexus-mode-btn" onclick="toggleMode('neon')" title="Neon Mode">💜</button>
+    <button class="nexus-mode-btn" onclick="toggleMode('matrix')" title="Matrix Mode">🟢</button>
+    <button class="nexus-mode-btn" onclick="toggleMode('gaming')" title="Gaming RGB Mode">🎮</button>
+    <button class="nexus-mode-btn" onclick="toggleMode('retro')" title="Retro 80s Mode">📼</button>
+    <button class="nexus-mode-btn" onclick="toggleMode('minimal')" title="Minimal Mode">⚪</button>
+</div>
+
 {{!-- Scripts - handle member signups, responsive videos, infinite scroll, floating headers, and galleries --}}
 <script
     src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -135,6 +145,95 @@
 
 {{!-- Nexus enhanced functionality --}}
 <script src="{{asset "js/nexus-tech.js"}}"></script>
+<script src="{{asset "js/nexus-helpers.js"}}"></script>
+
+{{!-- Mode Toggle Script --}}
+<script>
+function toggleMode(mode) {
+    // Remove all mode classes
+    const modeClasses = ['nexus-neon-mode', 'nexus-matrix-mode', 'nexus-gaming-mode', 'nexus-retro-mode', 'nexus-minimal-mode'];
+    modeClasses.forEach(cls => document.body.classList.remove(cls));
+    
+    // Remove active class from all buttons
+    document.querySelectorAll('.nexus-mode-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Add selected mode
+    if (mode !== 'default') {
+        document.body.classList.add('nexus-' + mode + '-mode');
+    }
+    
+    // Add active class to clicked button
+    event.target.classList.add('active');
+    
+    // Save preference
+    localStorage.setItem('nexus-mode', mode);
+    
+    // Show notification
+    showModeNotification(mode);
+}
+
+function showModeNotification(mode) {
+    const notifications = {
+        'default': '🏠 Default Mode Activated',
+        'neon': '💜 Neon Cyberpunk Mode Activated',
+        'matrix': '🟢 Matrix Digital Rain Mode Activated', 
+        'gaming': '🎮 Gaming RGB Mode Activated',
+        'retro': '📼 Retro 80s Synthwave Mode Activated',
+        'minimal': '⚪ Minimal Clean Mode Activated'
+    };
+    
+    const notification = document.createElement('div');
+    notification.className = 'nexus-notification';
+    notification.textContent = notifications[mode] || 'Mode Changed';
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--nexus-primary);
+        color: var(--nexus-bg-primary);
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-family: var(--nexus-font-code);
+        font-size: 14px;
+        z-index: 10000;
+        animation: slideIn 0.3s ease-out;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease-out';
+        setTimeout(() => notification.remove(), 300);
+    }, 2000);
+}
+
+// Load saved mode on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedMode = localStorage.getItem('nexus-mode') || 'default';
+    if (savedMode !== 'default') {
+        document.body.classList.add('nexus-' + savedMode + '-mode');
+        const btn = document.querySelector(`[onclick="toggleMode('${savedMode}')"]`);
+        if (btn) btn.classList.add('active');
+    } else {
+        const defaultBtn = document.querySelector(`[onclick="toggleMode('default')"]`);
+        if (defaultBtn) defaultBtn.classList.add('active');
+    }
+});
+
+// CSS for notifications
+const style = document.createElement('style');
+style.textContent = `
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+`;
+document.head.appendChild(style);
+</script>
 
 {{!-- Prism.js for syntax highlighting --}}
 {{#match @custom.syntax_theme "GitHub Dark"}}

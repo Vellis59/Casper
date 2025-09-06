@@ -1,54 +1,406 @@
 {{!< default}}
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
+{{!-- Revolutionary Nexus Homepage Layout --}}
 
-<div class="site-header-content outer{{#match @custom.header_style "Left aligned"}} left-aligned{{/match}}{{#unless @custom.show_publication_cover}}{{#match @custom.header_style "Hidden"}} no-content{{/match}}{{/unless}}">
-
-    {{#if @custom.show_publication_cover}}
-        {{#if @site.cover_image}}
-            {{!-- This is a responsive image, it loads different sizes depending on device
-            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-            <img class="site-header-cover"
-                srcset="{{img_url @site.cover_image size="s"}} 300w,
-                        {{img_url @site.cover_image size="m"}} 600w,
-                        {{img_url @site.cover_image size="l"}} 1000w,
-                        {{img_url @site.cover_image size="xl"}} 2000w"
-                sizes="100vw"
-                src="{{img_url @site.cover_image size="xl"}}"
-                alt="{{@site.title}}"
-            />
-        {{/if}}
-    {{/if}}
-
-    {{#match @custom.header_style "!=" "Hidden"}}
-        <div class="site-header-inner inner">
-            {{#match @custom.navigation_layout "Logo on cover"}}
-                {{#if @site.logo}}
-                    <img class="site-logo" src="{{@site.logo}}" alt="{{@site.title}}">
-                {{else}}
-                    <h1 class="site-title">{{@site.title}}</h1>
-                {{/if}}
-            {{/match}}
-            {{#if @site.description}}
-                <p class="site-description">{{@site.description}}</p>
-            {{/if}}
+{{!-- Sidebar Navigation --}}
+<aside class="nexus-sidebar nexus-glass-dark nexus-scanlines">
+    {{!-- Animated Brand --}}
+    <div class="nexus-brand">
+        <a href="{{@site.url}}" class="nexus-brand-logo nexus-neon-primary">
+            {{@site.title}}
+        </a>
+        <div class="nexus-brand-tagline nexus-typewriter">
+            > Connecting minds through code
         </div>
-    {{/match}}
-
-</div>
-
-{{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-<div class="inner posts">
-
-    <div class="post-feed">
-        {{#foreach posts}}
-            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-            {{> "post-card"}}
-        {{/foreach}}
     </div>
 
-    {{pagination}}
+    {{!-- Dashboard Navigation --}}
+    <nav class="nexus-nav">
+        <ul class="nexus-nav-list">
+            <li class="nexus-nav-item">
+                <a href="{{@site.url}}" class="nexus-nav-link nexus-3d-hover">
+                    <span class="nexus-nav-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+            </li>
+            {{#foreach navigation}}
+            <li class="nexus-nav-item">
+                <a href="{{url}}" class="nexus-nav-link nexus-3d-hover">
+                    <span class="nexus-nav-icon">⚡</span>
+                    <span>{{label}}</span>
+                </a>
+            </li>
+            {{/foreach}}
+            <li class="nexus-nav-item">
+                <a href="/search/" class="nexus-nav-link nexus-3d-hover">
+                    <span class="nexus-nav-icon">🔍</span>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-</div>
+    {{!-- Tech Widgets --}}
+    <div class="nexus-widgets">
+        {{!-- System Status Widget --}}
+        <div class="nexus-widget nexus-glass nexus-pulse">
+            <div class="nexus-widget-title">System Status</div>
+            <div class="nexus-widget-content">
+                <div>🟢 All systems operational</div>
+                <div>📊 Performance: Optimal</div>
+                <div>🔄 Last sync: Just now</div>
+            </div>
+        </div>
+
+        {{!-- Quick Stats Widget --}}
+        <div class="nexus-widget nexus-glass">
+            <div class="nexus-widget-title">Quick Stats</div>
+            <div class="nexus-widget-content">
+                <div>📝 Posts: {{pagination.total}}</div>
+                <div>🏷️ Tags: Active</div>
+                <div>👨‍💻 Authors: Contributing</div>
+            </div>
+        </div>
+
+        {{!-- Social Links Widget --}}
+        {{#if @custom.github_username}}
+        <div class="nexus-widget nexus-glass nexus-hologram">
+            <div class="nexus-widget-title">Connect</div>
+            <div class="nexus-widget-content">
+                {{#if @custom.github_username}}
+                <a href="https://github.com/{{@custom.github_username}}" class="nexus-social-link" target="_blank">
+                    📦 GitHub
+                </a>
+                {{/if}}
+                {{#if @custom.twitter_username}}
+                <a href="https://twitter.com/{{@custom.twitter_username}}" class="nexus-social-link" target="_blank">
+                    🐦 Twitter
+                </a>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
+
+        {{!-- Matrix Rain Effect --}}
+        <div class="nexus-matrix-rain">
+            <div class="nexus-matrix-column" style="left: 10%; animation-delay: 0s;">10110</div>
+            <div class="nexus-matrix-column" style="left: 30%; animation-delay: 1s;">01101</div>
+            <div class="nexus-matrix-column" style="left: 50%; animation-delay: 2s;">11010</div>
+            <div class="nexus-matrix-column" style="left: 70%; animation-delay: 0.5s;">00111</div>
+            <div class="nexus-matrix-column" style="left: 90%; animation-delay: 1.5s;">10101</div>
+        </div>
+    </div>
+</aside>
+
+{{!-- Mobile Sidebar Toggle --}}
+<button class="nexus-mobile-toggle" onclick="toggleSidebar()">
+    ☰
+</button>
+
+{{!-- Main Content Area --}}
+<main class="site-content nexus-hex-pattern">
+    {{!-- Loading Progress Bar --}}
+    <div class="nexus-loading">
+        <div class="nexus-loading-bar"></div>
+    </div>
+
+    {{!-- Revolutionary Hero Section --}}
+    <section class="nexus-hero nexus-glass-dark nexus-hologram nexus-float">
+        <div class="nexus-hero-content">
+            <h1 class="nexus-hero-title nexus-glitch-text" data-text="Welcome to the Future">
+                Welcome to the Future
+            </h1>
+            <p class="nexus-hero-subtitle">
+                Where code meets creativity, and innovation shapes tomorrow. 
+                Explore cutting-edge tutorials, tech insights, and developer stories.
+            </p>
+            <a href="#posts" class="nexus-hero-cta nexus-neon-box nexus-data-stream">
+                <span>Explore Tech Universe</span>
+                <span style="margin-left: 10px;">🚀</span>
+            </a>
+        </div>
+        
+        {{!-- Floating Energy Orbs --}}
+        <div class="nexus-energy-orb" style="position: absolute; top: 20%; right: 20%;"></div>
+        <div class="nexus-energy-orb" style="position: absolute; bottom: 30%; left: 15%; animation-delay: 0.5s;"></div>
+        
+        {{!-- Particle System --}}
+        <div class="nexus-particles">
+            {{#times 20}}
+            <div class="nexus-particle" style="
+                left: {{random 0 100}}%; 
+                animation-delay: {{random 0 6}}s;
+                animation-duration: {{random 4 8}}s;
+            "></div>
+            {{/times}}
+        </div>
+    </section>
+
+    {{!-- Interactive Terminal Section --}}
+    <section class="nexus-terminal-section" style="margin: 4rem 0;">
+        {{#> "nexus/terminal" title="nexus@localhost:~$"}}
+        <div class="nexus-terminal-prompt">$</div> 
+        <div class="nexus-terminal-command nexus-typewriter">cat latest_posts.json</div>
+        <div class="nexus-terminal-output">
+        {
+          "status": "success",
+          "posts_count": {{pagination.total}},
+          "latest_update": "{{date format='YYYY-MM-DD HH:mm'}}",
+          "featured_topics": ["AI", "WebDev", "DevOps", "Blockchain"]
+        }
+        </div>
+        <div class="nexus-terminal-prompt">$</div> 
+        <div class="nexus-terminal-command">npm run explore</div>
+        <div class="nexus-terminal-output nexus-neon-primary">🚀 Initializing content discovery...</div>
+        {{/"nexus/terminal"}}
+    </section>
+
+    {{!-- Revolutionary Post Grid --}}
+    <section id="posts" class="nexus-post-section">
+        <h2 class="section-title nexus-neon-accent" style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">
+            Latest Tech Chronicles
+        </h2>
+        
+        <div class="nexus-post-grid">
+            {{#foreach posts}}
+            <article class="nexus-card nexus-glass {{#if featured}}featured{{/if}} nexus-3d-hover nexus-morph loading" 
+                     style="animation-delay: {{math @index '*' 0.1}}s;">
+                
+                {{!-- Card Header with Image --}}
+                <div class="nexus-card-header">
+                    {{#if feature_image}}
+                    <img src="{{img_url feature_image size="m"}}" 
+                         alt="{{title}}" 
+                         class="nexus-card-image">
+                    {{else}}
+                    <div class="nexus-card-image nexus-circuit" style="background: linear-gradient(135deg, var(--nexus-bg-tertiary), var(--nexus-bg-code));"></div>
+                    {{/if}}
+                    
+                    {{!-- Holographic Overlay --}}
+                    <div class="nexus-card-overlay"></div>
+                    
+                    {{!-- Tech Tags --}}
+                    {{#if tags}}
+                    <div class="nexus-card-tags">
+                        {{#foreach tags limit="3"}}
+                        <span class="nexus-tag nexus-float">{{name}}</span>
+                        {{/foreach}}
+                    </div>
+                    {{/if}}
+                    
+                    {{!-- Reading Time HUD --}}
+                    {{#if reading_time}}
+                    <div class="nexus-reading-time nexus-pulse">
+                        ⏱️ {{reading_time}}
+                    </div>
+                    {{/if}}
+                    
+                    {{!-- Progress Bar --}}
+                    <div class="nexus-card-progress"></div>
+                </div>
+
+                {{!-- Card Content --}}
+                <div class="nexus-card-content">
+                    <h3 class="nexus-card-title">
+                        <a href="{{url}}">{{title}}</a>
+                    </h3>
+                    
+                    {{#if custom_excerpt}}
+                    <p class="nexus-card-excerpt">{{custom_excerpt}}</p>
+                    {{else}}
+                    <p class="nexus-card-excerpt">{{excerpt words="25"}}</p>
+                    {{/if}}
+
+                    {{!-- Tech Badges --}}
+                    {{#if @custom.enable_tech_badges}}
+                    <div class="nexus-card-actions">
+                        <button class="nexus-action-btn nexus-data-stream" onclick="likePost('{{id}}')">
+                            👍 Like
+                        </button>
+                        <button class="nexus-action-btn" onclick="sharePost('{{url}}')">
+                            🔗 Share
+                        </button>
+                        <button class="nexus-action-btn nexus-hologram" onclick="bookmarkPost('{{id}}')">
+                            🔖 Save
+                        </button>
+                    </div>
+                    {{/if}}
+                </div>
+
+                {{!-- Author HUD --}}
+                <div class="nexus-card-author nexus-glass">
+                    {{#primary_author}}
+                    {{#if profile_image}}
+                    <img src="{{img_url profile_image size="xs"}}" 
+                         alt="{{name}}" 
+                         class="nexus-author-avatar">
+                    {{else}}
+                    <div class="nexus-author-avatar" style="background: var(--nexus-primary); display: flex; align-items: center; justify-content: center; color: var(--nexus-bg-primary); font-weight: bold;">
+                        {{initials name}}
+                    </div>
+                    {{/if}}
+                    <div class="nexus-author-info">
+                        <div class="nexus-author-name">{{name}}</div>
+                        <div class="nexus-author-meta">{{../published_at timeago}}</div>
+                    </div>
+                    {{/primary_author}}
+                    
+                    {{!-- Particle Burst Effect --}}
+                    <div class="nexus-card-particles">
+                        {{#times 10}}
+                        <div class="nexus-card-particle" style="
+                            left: {{random 0 100}}%; 
+                            top: {{random 0 100}}%; 
+                            animation-delay: {{random 0 1000}}ms;
+                        "></div>
+                        {{/times}}
+                    </div>
+                </div>
+            </article>
+            {{/foreach}}
+        </div>
+    </section>
+
+    {{!-- Futuristic Pagination --}}
+    {{pagination}}
 </main>
+
+{{!-- Global Particle System --}}
+<div class="nexus-matrix-bg">
+    {{#times 50}}
+    <div class="nexus-matrix-char" style="
+        left: {{random 0 100}}%; 
+        animation-delay: {{random 0 8}}s;
+        animation-duration: {{random 6 12}}s;
+    ">{{random_char "01ABCDEF"}}</div>
+    {{/times}}
+</div>
+
+{{!-- Custom JavaScript for Revolutionary Features --}}
+<script>
+// Sidebar Toggle for Mobile
+function toggleSidebar() {
+    document.querySelector('.nexus-sidebar').classList.toggle('open');
+}
+
+// Interactive Loading Progress
+window.addEventListener('load', function() {
+    const loadingBar = document.querySelector('.nexus-loading-bar');
+    if (loadingBar) {
+        loadingBar.style.width = '100%';
+        setTimeout(() => {
+            document.querySelector('.nexus-loading').style.display = 'none';
+        }, 500);
+    }
+});
+
+// Card Loading Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.nexus-card.loading');
+    cards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.remove('loading');
+        }, index * 100);
+    });
+});
+
+// Interactive Actions
+function likePost(postId) {
+    console.log('Liked post:', postId);
+    // Add your like logic here
+    alert('Post liked! 💙');
+}
+
+function sharePost(url) {
+    if (navigator.share) {
+        navigator.share({ url: url });
+    } else {
+        navigator.clipboard.writeText(url);
+        alert('URL copied to clipboard! 🔗');
+    }
+}
+
+function bookmarkPost(postId) {
+    console.log('Bookmarked post:', postId);
+    // Add your bookmark logic here  
+    alert('Post saved! 🔖');
+}
+
+// Mouse Reactive Background
+document.addEventListener('mousemove', function(e) {
+    const reactive = document.querySelectorAll('.nexus-reactive-bg');
+    reactive.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        el.style.setProperty('--mouse-x', x + '%');
+        el.style.setProperty('--mouse-y', y + '%');
+    });
+});
+
+// Matrix Effect Enhancement
+function createMatrixRain() {
+    const container = document.querySelector('.nexus-matrix-bg');
+    if (!container) return;
+    
+    setInterval(() => {
+        const char = document.createElement('div');
+        char.className = 'nexus-matrix-char';
+        char.textContent = Math.random() > 0.5 ? '1' : '0';
+        char.style.left = Math.random() * 100 + '%';
+        char.style.animationDuration = (Math.random() * 6 + 4) + 's';
+        container.appendChild(char);
+        
+        setTimeout(() => {
+            char.remove();
+        }, 8000);
+    }, 200);
+}
+
+// Initialize Matrix Rain
+createMatrixRain();
+
+// Glitch Effect for Hero Text
+setInterval(() => {
+    const glitchText = document.querySelector('.nexus-glitch-text');
+    if (glitchText && Math.random() > 0.95) {
+        glitchText.style.animation = 'none';
+        setTimeout(() => {
+            glitchText.style.animation = 'nexus-glitch 0.3s ease-in-out';
+        }, 10);
+    }
+}, 100);
+</script>
+
+<style>
+{{!-- Custom animations for this page --}}
+@keyframes random-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(2deg); }
+    50% { transform: translateY(-10px) rotate(-1deg); }
+    75% { transform: translateY(-5px) rotate(1deg); }
+}
+
+.nexus-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.nexus-card:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--nexus-primary), var(--nexus-accent));
+    animation: nexus-pulse-line 2s ease-in-out infinite;
+}
+</style>
