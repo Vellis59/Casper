@@ -91,9 +91,9 @@
     </div>
 </aside>
 
-{{!-- Mobile Sidebar Toggle --}}
-<button class="nexus-mobile-toggle" onclick="toggleSidebar()">
-    ☰
+{{!-- Mobile Sidebar Toggle - Will be enhanced by JS --}}
+<button class="nexus-mobile-toggle">
+    <!-- Hamburger icon will be injected by JS -->
 </button>
 
 {{!-- Main Content Area --}}
@@ -253,10 +253,7 @@
 
 {{!-- Custom JavaScript for Revolutionary Features --}}
 <script>
-// Sidebar Toggle for Mobile
-function toggleSidebar() {
-    document.querySelector('.nexus-sidebar').classList.toggle('open');
-}
+// Sidebar Toggle handled by nexus-mobile-gestures.js
 
 // Generate Particles for Hero Section
 function generateHeroParticles() {
