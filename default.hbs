@@ -21,6 +21,16 @@
     {{!-- Theme assets - use the {asset} helper to reference styles & scripts,
     this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    
+    {{!-- Nexus Revolutionary Theme CSS --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-variables.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-base.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-typography.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-components.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-layout-revolution.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-futuristic-cards.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-visual-effects.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nexus-special-modes.css"}}" />
 
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
@@ -145,6 +155,7 @@
 
 {{!-- Nexus enhanced functionality --}}
 <script src="{{asset "js/nexus-tech.js"}}"></script>
+<script src="{{asset "js/nexus-helpers.js"}}"></script>
 
 {{!-- Mode Toggle Script --}}
 <script>
