@@ -155,7 +155,7 @@
         <div class="nexus-post-grid">
             {{#foreach posts}}
             <article class="nexus-card nexus-glass {{#if featured}}featured{{/if}} nexus-3d-hover nexus-morph loading" 
-                     style="animation-delay: {{math @index '*' 0.1}}s;">
+                     style="animation-delay: {{@index}}00ms;" data-post-index="{{@index}}">
                 
                 {{!-- Card Header with Image --}}
                 <div class="nexus-card-header">
