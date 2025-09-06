@@ -1,69 +1,183 @@
-# Casper
+# Nexus
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
-
-&nbsp;
-
-![screenshot-desktop](https://user-images.githubusercontent.com/1418797/183329195-8e8f2ee5-a473-4694-a813-a2575491209e.png)
+A modern, tech-focused Ghost theme designed for developers, tech bloggers, and digital creators. Nexus combines clean aesthetics with powerful functionality, featuring a dark-first design, advanced syntax highlighting, and an optimized developer experience.
 
 &nbsp;
 
-# First time using a Ghost theme?
+![Nexus Theme Preview](https://your-domain.com/nexus-preview.png)
 
-Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.
+&nbsp;
 
-This theme has lots of code comments to help explain what's going on just by reading the code. Once you feel comfortable with how everything works, we also have full [theme API documentation](https://ghost.org/docs/themes/) which explains every possible Handlebars helper and template.
+## ✨ Key Features
 
-**The main files are:**
+### 🌙 **Dark-First Design**
+- Beautiful dark theme optimized for developers
+- Elegant light mode alternative
+- Smooth transitions between themes
+- Auto-detection based on system preferences
 
-- `default.hbs` - The parent template file, which includes your global header/footer
-- `index.hbs` - The main template to generate a list of posts, usually the home page
-- `post.hbs` - The template used to render individual posts
-- `page.hbs` - Used for individual pages
-- `tag.hbs` - Used for tag archives, eg. "all posts tagged with `news`"
-- `author.hbs` - Used for author archives, eg. "all posts written by Jamie"
+### 💻 **Developer-Focused**
+- Advanced syntax highlighting with Prism.js
+- Code block enhancements with copy buttons
+- Terminal-style components
+- Monospace font optimization
 
-One neat trick is that you can also create custom one-off templates by adding the slug of a page to a template file. For example:
+### 🎨 **Modern UI/UX**
+- Clean, minimal interface
+- Responsive design for all devices
+- Smooth animations and micro-interactions
+- Customizable color schemes
 
-- `page-about.hbs` - Custom template for an `/about/` page
-- `tag-news.hbs` - Custom template for `/tag/news/` archive
-- `author-ali.hbs` - Custom template for `/author/ali/` archive
+### ⚡ **Performance Optimized**
+- Lazy loading for images
+- Critical CSS inlining
+- Optimized asset delivery
+- Fast loading times
 
+### 🛠 **Highly Customizable**
+- Multiple layout options
+- Typography customization
+- Color scheme variations
+- Navigation layouts
 
-# Development
+&nbsp;
 
-Casper styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
+## 🚀 Quick Start
+
+### Installation
+
+1. Download the latest release from [GitHub Releases](https://github.com/your-username/nexus-ghost-theme/releases)
+2. Upload the theme ZIP file to your Ghost admin panel
+3. Activate the theme in **Design** settings
+4. Customize your theme settings
+
+### Development
+
+Nexus uses Gulp for building assets. You'll need [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) installed.
 
 ```bash
-# install dependencies
+# Install dependencies
 yarn install
 
-# run development server
+# Start development server with live reload
 yarn dev
-```
 
-Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
+# Build for production
+yarn build
 
-The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
-
-```bash
-# create .zip file
+# Create distribution ZIP
 yarn zip
 ```
 
-# PostCSS Features Used
+&nbsp;
 
-- Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
-- [Color Mod](https://github.com/jonathantneal/postcss-color-mod-function)
+## 📋 Theme Structure
 
+**Main Templates:**
+- `default.hbs` - Base template with header/footer
+- `index.hbs` - Homepage with featured posts
+- `post.hbs` - Individual post template with enhanced features
+- `page.hbs` - Static pages template
+- `tag.hbs` - Tag archive pages
+- `author.hbs` - Author profile pages
 
-# SVG Icons
+**Specialized Templates:**
+- `post-code.hbs` - Enhanced template for code tutorials
+- `post-gallery.hbs` - Image gallery focused posts
+- `page-about.hbs` - Custom about page template
 
-Casper uses inline SVG icons, included via Handlebars partials. You can find all icons inside `/partials/icons`. To use an icon just include the name of the relevant file, eg. To include the SVG icon in `/partials/icons/rss.hbs` - use `{{> "icons/rss"}}`.
+**Partials:**
+- `partials/header.hbs` - Site header with navigation
+- `partials/footer.hbs` - Site footer
+- `partials/code-block.hbs` - Enhanced code blocks
+- `partials/author-card.hbs` - Author information cards
+- `partials/newsletter.hbs` - Newsletter signup component
 
-You can add your own SVG icons in the same manner.
+&nbsp;
 
+## 🎛 Customization Options
 
-# Copyright & License
+Nexus includes extensive customization options available in Ghost admin:
 
-Copyright (c) 2013-2025 Ghost Foundation - Released under the [MIT license](LICENSE).
+### **Layout Options**
+- Navigation layout (Logo positions, stacked)
+- Post layouts (Wide, full, grid, list)
+- Header styles (Center, left, hidden)
+
+### **Typography**
+- Primary font selection
+- Code font selection  
+- Reading experience settings
+
+### **Colors & Theme**
+- Color scheme (Dark, Light, Auto)
+- Accent color customization
+- Syntax highlighting themes
+
+### **Components**
+- Newsletter signup styling
+- Social sharing options
+- Author bio display
+- Recent posts footer
+
+&nbsp;
+
+## 🔧 Advanced Configuration
+
+### Custom Code Highlighting
+
+Nexus supports multiple syntax highlighting themes:
+
+```css
+/* Available themes */
+.prism-theme-dark { /* Default dark theme */ }
+.prism-theme-light { /* Light theme */ }
+.prism-theme-ocean { /* Ocean blue theme */ }
+.prism-theme-matrix { /* Matrix green theme */ }
+```
+
+### Custom Colors
+
+Override the default color scheme in Code Injection:
+
+```css
+:root {
+  --nexus-primary: #00d4ff;
+  --nexus-secondary: #0066cc;
+  --nexus-accent: #ff6b35;
+  --nexus-background: #0a0a0a;
+  --nexus-surface: #1a1a1a;
+}
+```
+
+&nbsp;
+
+## 📱 Responsive Design
+
+Nexus is fully responsive and optimized for:
+
+- **Desktop** - Full-featured layout with sidebars
+- **Tablet** - Adapted layout with touch-friendly navigation
+- **Mobile** - Optimized for reading and navigation
+
+&nbsp;
+
+## 🤝 Support & Contributing
+
+### Support
+- 📚 [Documentation](https://github.com/your-username/nexus-ghost-theme/wiki)
+- 🐛 [Bug Reports](https://github.com/your-username/nexus-ghost-theme/issues)
+- 💬 [Discussions](https://github.com/your-username/nexus-ghost-theme/discussions)
+
+### Contributing
+We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
+
+&nbsp;
+
+## 📄 License
+
+Copyright (c) 2025 Your Name - Released under the [MIT license](LICENSE).
+
+---
+
+**Nexus** - Connecting ideas through code ⚡

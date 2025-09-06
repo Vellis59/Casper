@@ -1,0 +1,14 @@
+{{!-- 
+Nexus Tech Badge Component
+Usage: {{> "nexus/tech-badge" text="React" type="primary" url="/tag/react"}}
+--}}
+
+{{#if url}}
+<a href="{{url}}" class="nexus-badge {{#if type}}{{type}}{{/if}}">
+    {{text}}
+</a>
+{{else}}
+<span class="nexus-badge {{#if type}}{{type}}{{/if}}">
+    {{text}}
+</span>
+{{/if}}

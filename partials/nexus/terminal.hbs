@@ -1,0 +1,21 @@
+{{!-- 
+Nexus Terminal Component
+Usage: {{> "nexus/terminal" title="bash"}}
+--}}
+
+<div class="nexus-terminal">
+    <div class="nexus-terminal-header">
+        <div class="nexus-terminal-dots">
+            <div class="nexus-terminal-dot red"></div>
+            <div class="nexus-terminal-dot yellow"></div>
+            <div class="nexus-terminal-dot green"></div>
+        </div>
+        {{#if title}}
+        <div class="nexus-terminal-title">{{title}}</div>
+        {{/if}}
+    </div>
+    
+    <div class="nexus-terminal-body">
+        {{> @partial-block}}
+    </div>
+</div>

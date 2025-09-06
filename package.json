@@ -1,8 +1,8 @@
 {
-    "name": "casper",
-    "description": "A clean, minimal default theme for the Ghost publishing platform",
-    "demo": "https://demo.ghost.io",
-    "version": "5.9.0",
+    "name": "nexus",
+    "description": "A modern, tech-focused Ghost theme designed for developers, tech bloggers, and digital creators. Features dark-first design, syntax highlighting, and premium developer experience.",
+    "demo": "https://nexus-theme-demo.ghost.io",
+    "version": "1.0.0",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -22,28 +22,38 @@
         "postship": "git fetch && gulp release"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org/"
+        "name": "Your Name",
+        "email": "your.email@domain.com",
+        "url": "https://your-website.com/"
     },
     "gpm": {
         "type": "theme",
         "categories": [
-            "Minimal",
-            "Magazine"
+            "Tech",
+            "Dark",
+            "Developer",
+            "Modern",
+            "Minimal"
         ]
     },
     "keywords": [
         "ghost",
         "theme",
-        "ghost-theme"
+        "ghost-theme",
+        "tech",
+        "developer",
+        "dark-theme",
+        "syntax-highlighting",
+        "modern",
+        "responsive",
+        "code-friendly"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Casper.git"
+        "url": "https://github.com/your-username/nexus-ghost-theme.git"
     },
-    "bugs": "https://github.com/TryGhost/Casper/issues",
-    "contributors": "https://github.com/TryGhost/Casper/graphs/contributors",
+    "bugs": "https://github.com/your-username/nexus-ghost-theme/issues",
+    "contributors": "https://github.com/your-username/nexus-ghost-theme/graphs/contributors",
     "devDependencies": {
         "@tryghost/release-utils": "0.8.1",
         "autoprefixer": "10.4.7",
@@ -93,7 +103,7 @@
                 "type": "select",
                 "options": [
                     "Logo on cover",
-                    "Logo in the middle",
+                    "Logo in the middle", 
                     "Stacked"
                 ],
                 "default": "Logo on cover"
@@ -101,18 +111,30 @@
             "title_font": {
                 "type": "select",
                 "options": [
-                    "Modern sans-serif",
+                    "Inter (Tech Sans-serif)",
+                    "JetBrains Mono (Display)",
                     "Elegant serif"
                 ],
-                "default": "Modern sans-serif"
+                "default": "Inter (Tech Sans-serif)"
             },
             "body_font": {
                 "type": "select",
                 "options": [
-                    "Modern sans-serif",
+                    "Inter (Tech Sans-serif)",
+                    "Fira Code (Monospace)",
                     "Elegant serif"
                 ],
-                "default": "Elegant serif"
+                "default": "Inter (Tech Sans-serif)"
+            },
+            "code_font": {
+                "type": "select",
+                "options": [
+                    "Fira Code",
+                    "JetBrains Mono",
+                    "SF Mono"
+                ],
+                "default": "Fira Code",
+                "group": "tech"
             },
             "show_publication_cover": {
                 "type": "boolean",
@@ -132,21 +154,34 @@
             "feed_layout": {
                 "type": "select",
                 "options": [
+                    "Tech Cards",
                     "Classic",
                     "Grid",
                     "List"
                 ],
-                "default": "Classic",
+                "default": "Tech Cards",
                 "group": "homepage"
             },
             "color_scheme": {
                 "type": "select",
                 "options": [
+                    "Dark (Nexus Default)",
                     "Light",
-                    "Dark",
                     "Auto"
                 ],
-                "default": "Light"
+                "default": "Dark (Nexus Default)"
+            },
+            "syntax_theme": {
+                "type": "select",
+                "options": [
+                    "Nexus Dark",
+                    "GitHub Dark",
+                    "VS Code Dark",
+                    "Matrix",
+                    "Ocean"
+                ],
+                "default": "Nexus Dark",
+                "group": "tech"
             },
             "post_image_style": {
                 "type": "select",
@@ -159,15 +194,50 @@
                 "default": "Wide",
                 "group": "post"
             },
+            "show_code_line_numbers": {
+                "type": "boolean",
+                "default": true,
+                "group": "tech"
+            },
+            "enable_code_copy": {
+                "type": "boolean", 
+                "default": true,
+                "group": "tech"
+            },
+            "show_reading_progress": {
+                "type": "boolean",
+                "default": true,
+                "group": "post"
+            },
+            "enable_tech_badges": {
+                "type": "boolean",
+                "default": true,
+                "group": "tech"
+            },
             "email_signup_text": {
                 "type": "text",
-                "default": "Sign up for more like this.",
+                "default": "Join the tech community - get the latest updates.",
                 "group": "post"
             },
             "show_recent_posts_footer": {
                 "type": "boolean",
                 "default": true,
                 "group": "post"
+            },
+            "github_username": {
+                "type": "text",
+                "default": "",
+                "group": "social"
+            },
+            "twitter_username": {
+                "type": "text", 
+                "default": "",
+                "group": "social"
+            },
+            "linkedin_username": {
+                "type": "text",
+                "default": "",
+                "group": "social"
             }
         }
     },

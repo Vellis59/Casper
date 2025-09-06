@@ -1,0 +1,279 @@
+/* Nexus Base Styles - Dark First Design
+/* ---------------------------------------------------------- */
+
+/* Override global styles for dark-first approach */
+html, body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Site structure with dark theme */
+.site-content {
+    background-color: var(--bg-primary);
+}
+
+/* Header styling */
+.gh-head {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--nexus-border);
+}
+
+.gh-head-inner {
+    background: transparent;
+}
+
+.gh-head-logo {
+    color: var(--text-primary);
+    font-family: var(--nexus-font-display);
+    font-weight: var(--nexus-font-bold);
+}
+
+.gh-head-logo:hover {
+    color: var(--nexus-primary);
+    text-shadow: 0 0 10px var(--nexus-primary);
+}
+
+/* Navigation */
+.gh-head-menu a {
+    color: var(--text-secondary);
+    font-family: var(--nexus-font-primary);
+    font-weight: var(--nexus-font-medium);
+    transition: all var(--nexus-transition-fast);
+}
+
+.gh-head-menu a:hover {
+    color: var(--nexus-primary);
+    transform: translateY(-1px);
+}
+
+/* Main content areas */
+.post-feed {
+    background: var(--bg-primary);
+}
+
+.post-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--nexus-border);
+    border-radius: var(--nexus-radius-lg);
+    transition: all var(--nexus-transition-normal);
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--nexus-shadow-lg);
+    border-color: var(--nexus-primary);
+}
+
+.post-card-title {
+    color: var(--text-primary);
+    font-family: var(--nexus-font-primary);
+    font-weight: var(--nexus-font-semibold);
+}
+
+.post-card-title:hover {
+    color: var(--nexus-primary);
+}
+
+.post-card-excerpt {
+    color: var(--text-secondary);
+    line-height: var(--nexus-leading-relaxed);
+}
+
+.post-card-meta {
+    color: var(--text-muted);
+    font-family: var(--nexus-font-primary);
+    font-size: var(--nexus-text-sm);
+}
+
+.post-card-byline-content a {
+    color: var(--nexus-primary);
+}
+
+/* Post content */
+.post-content {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.post-full-header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--nexus-border);
+}
+
+.post-full-title {
+    color: var(--text-primary);
+    font-family: var(--nexus-font-primary);
+    font-weight: var(--nexus-font-bold);
+}
+
+.post-full-meta {
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--nexus-border);
+    color: var(--text-secondary);
+}
+
+.site-footer a {
+    color: var(--nexus-primary);
+}
+
+/* Buttons */
+.btn {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    border: none;
+    border-radius: var(--nexus-radius-md);
+    font-family: var(--nexus-font-primary);
+    font-weight: var(--nexus-font-medium);
+    transition: all var(--nexus-transition-fast);
+}
+
+.btn:hover {
+    background: var(--nexus-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--nexus-shadow-md);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--nexus-primary);
+    border: 2px solid var(--nexus-primary);
+}
+
+.btn-outline:hover {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+}
+
+/* Forms */
+input, textarea, select {
+    background: var(--bg-secondary);
+    border: 1px solid var(--nexus-border);
+    border-radius: var(--nexus-radius-md);
+    color: var(--text-primary);
+    font-family: var(--nexus-font-primary);
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--nexus-primary);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+}
+
+/* Search */
+.gh-search {
+    color: var(--text-secondary);
+}
+
+.gh-search:hover {
+    color: var(--nexus-primary);
+}
+
+/* Pagination */
+.pagination {
+    background: var(--bg-secondary);
+    border-radius: var(--nexus-radius-lg);
+    border: 1px solid var(--nexus-border);
+}
+
+.pagination a {
+    color: var(--text-secondary);
+    transition: all var(--nexus-transition-fast);
+}
+
+.pagination a:hover {
+    color: var(--nexus-primary);
+    background: var(--bg-tertiary);
+}
+
+/* Tags */
+.tag {
+    background: var(--bg-secondary);
+    border: 1px solid var(--nexus-border);
+    border-radius: var(--nexus-radius-md);
+    color: var(--text-secondary);
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-xs);
+    transition: all var(--nexus-transition-fast);
+}
+
+.tag:hover {
+    background: var(--nexus-primary);
+    color: var(--nexus-bg-primary);
+    transform: translateY(-1px);
+}
+
+/* Author info */
+.author-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--nexus-border);
+    border-radius: var(--nexus-radius-lg);
+}
+
+.author-card-name {
+    color: var(--text-primary);
+    font-family: var(--nexus-font-primary);
+    font-weight: var(--nexus-font-semibold);
+}
+
+.author-card-content {
+    color: var(--text-secondary);
+}
+
+/* Newsletter signup */
+.subscribe-form {
+    background: var(--bg-secondary);
+    border: 1px solid var(--nexus-border);
+    border-radius: var(--nexus-radius-lg);
+}
+
+.subscribe-form-title {
+    color: var(--text-primary);
+    font-family: var(--nexus-font-primary);
+    font-weight: var(--nexus-font-semibold);
+}
+
+/* Error pages */
+.error-template {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.error-code {
+    color: var(--nexus-primary);
+    font-family: var(--nexus-font-display);
+}
+
+/* Mobile burger menu */
+.gh-burger {
+    color: var(--text-secondary);
+}
+
+.gh-burger:hover {
+    color: var(--nexus-primary);
+}
+
+/* Light mode specific overrides */
+body.light-mode .gh-head,
+body.light-mode .post-card,
+body.light-mode .site-footer,
+body.light-mode .subscribe-form,
+body.light-mode .author-card,
+body.light-mode .pagination {
+    box-shadow: var(--nexus-shadow-sm);
+}
+
+/* Auto color scheme responsive behavior */
+@media (prefers-color-scheme: light) {
+    body.auto-color .gh-head,
+    body.auto-color .post-card,
+    body.auto-color .site-footer,
+    body.auto-color .subscribe-form,
+    body.auto-color .author-card,
+    body.auto-color .pagination {
+        box-shadow: var(--nexus-shadow-sm);
+    }
+}

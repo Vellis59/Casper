@@ -1,0 +1,202 @@
+{{!< default}}
+
+{{#post}}
+<main id="site-main" class="site-main">
+<article class="article {{post_class}}">
+
+    <header class="article-header gh-canvas">
+        {{#if tags}}
+        <div class="article-tag-wrapper">
+            {{#foreach tags}}
+            {{> "nexus/tech-badge" text=name url=url type="primary"}}
+            {{/foreach}}
+        </div>
+        {{/if}}
+
+        <h1 class="article-title">{{title}}</h1>
+
+        {{#if custom_excerpt}}
+        <p class="article-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+
+        <div class="article-byline">
+            <section class="article-byline-content">
+
+                <div class="article-byline-meta">
+                    <h4 class="author-name">{{#foreach authors}}{{#if @first}}<a href="{{url}}">{{name}}</a>{{/if}}{{/foreach}}</h4>
+                    <div class="byline-meta-content">
+                        <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM DD, YYYY"}}</time>
+                        {{#if reading_time}}
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
+                        {{/if}}
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        {{#if feature_image}}
+        <div class="article-image">
+            <img
+                class="article-image-img"
+                src="{{img_url feature_image size="xl"}}"
+                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+            />
+            {{#if feature_image_caption}}
+            <figcaption>{{feature_image_caption}}</figcaption>
+            {{/if}}
+        </div>
+        {{/if}}
+
+    </header>
+
+    <div class="gh-content gh-canvas">
+        {{content}}
+    </div>
+
+    {{!-- Tech-specific enhancements --}}
+    {{#if @custom.github_username}}
+    <section class="nexus-github-section">
+        <div class="nexus-github-card">
+            <h3>💻 Code Repository</h3>
+            <p>Find the source code and examples from this post on GitHub:</p>
+            <a href="https://github.com/{{@custom.github_username}}" class="btn btn-outline" target="_blank">
+                View on GitHub
+            </a>
+        </div>
+    </section>
+    {{/if}}
+
+    {{!-- Related posts section --}}
+    {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="3" as |related_posts|}}
+    {{#if related_posts}}
+    <section class="related-posts">
+        <h3>Related Tech Posts</h3>
+        <div class="nexus-grid cols-3">
+            {{#foreach related_posts}}
+            <article class="post-card">
+                {{#if feature_image}}
+                <a href="{{url}}" class="post-card-image-link">
+                    <img class="post-card-image" src="{{img_url feature_image size="m"}}" alt="{{title}}" />
+                </a>
+                {{/if}}
+                <div class="post-card-content">
+                    <h4><a href="{{url}}">{{title}}</a></h4>
+                    {{#if excerpt}}
+                    <p class="post-card-excerpt">{{excerpt words="20"}}</p>
+                    {{/if}}
+                    <div class="post-card-meta">
+                        {{#if tags}}
+                        {{#foreach tags limit="2"}}
+                        {{> "nexus/tech-badge" text=name url=url}}
+                        {{/foreach}}
+                        {{/if}}
+                    </div>
+                </div>
+            </article>
+            {{/foreach}}
+        </div>
+    </section>
+    {{/if}}
+    {{/get}}
+
+    {{!-- Newsletter signup for tech content --}}
+    {{#if @site.members_enabled}}
+    <section class="article-signup">
+        <div class="nexus-newsletter-tech">
+            <h3>🚀 Stay Updated</h3>
+            <p>{{#if @custom.email_signup_text}}{{@custom.email_signup_text}}{{else}}Get the latest tech insights and tutorials delivered to your inbox.{{/if}}</p>
+            {{> "nexus/newsletter-signup"}}
+        </div>
+    </section>
+    {{/if}}
+
+</article>
+</main>
+{{/post}}
+
+{{!-- Enhanced styles for tech posts --}}
+<style>
+.article-tag-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nexus-space-xs);
+    margin-bottom: var(--nexus-space-lg);
+}
+
+.article-title {
+    font-size: var(--nexus-text-5xl);
+    font-weight: var(--nexus-font-bold);
+    color: var(--text-primary);
+    line-height: var(--nexus-leading-tight);
+    margin-bottom: var(--nexus-space-md);
+}
+
+.article-excerpt {
+    font-size: var(--nexus-text-xl);
+    color: var(--text-secondary);
+    line-height: var(--nexus-leading-relaxed);
+    margin-bottom: var(--nexus-space-lg);
+}
+
+.article-byline {
+    padding: var(--nexus-space-lg) 0;
+    border-bottom: 1px solid var(--nexus-border);
+    margin-bottom: var(--nexus-space-2xl);
+}
+
+.nexus-github-section {
+    margin: var(--nexus-space-3xl) 0;
+    padding: var(--nexus-space-lg) 0;
+    border-top: 1px solid var(--nexus-border);
+}
+
+.nexus-github-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--nexus-border);
+    border-radius: var(--nexus-radius-lg);
+    padding: var(--nexus-space-xl);
+    text-align: center;
+}
+
+.nexus-github-card h3 {
+    color: var(--nexus-primary);
+    margin-bottom: var(--nexus-space-md);
+}
+
+.related-posts {
+    margin: var(--nexus-space-3xl) 0;
+    padding: var(--nexus-space-lg) 0;
+    border-top: 1px solid var(--nexus-border);
+}
+
+.related-posts h3 {
+    color: var(--text-primary);
+    margin-bottom: var(--nexus-space-lg);
+    text-align: center;
+}
+
+.nexus-newsletter-tech {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    border: 1px solid var(--nexus-primary);
+    border-radius: var(--nexus-radius-lg);
+    padding: var(--nexus-space-xl);
+    text-align: center;
+    margin: var(--nexus-space-3xl) 0;
+}
+
+.nexus-newsletter-tech h3 {
+    color: var(--nexus-primary);
+    margin-bottom: var(--nexus-space-md);
+}
+
+@media (max-width: 768px) {
+    .article-title {
+        font-size: var(--nexus-text-4xl);
+    }
+    
+    .article-excerpt {
+        font-size: var(--nexus-text-lg);
+    }
+}
+</style>
