@@ -69,7 +69,7 @@
 .nexus-brand-tagline {
     font-family: var(--nexus-font-code);
     font-size: var(--nexus-text-sm);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     margin-top: var(--nexus-space-sm);
     opacity: 0.8;
 }
@@ -92,7 +92,7 @@
     background: transparent;
     border: 1px solid transparent;
     border-radius: var(--nexus-radius-md);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     text-decoration: none;
     font-family: var(--nexus-font-primary);
     font-weight: var(--nexus-font-medium);
@@ -161,7 +161,7 @@
 .nexus-widget-content {
     font-family: var(--nexus-font-code);
     font-size: var(--nexus-text-xs);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     line-height: 1.4;
 }
 
@@ -207,14 +207,14 @@
     font-family: var(--nexus-font-display);
     font-size: clamp(2rem, 5vw, 4rem);
     font-weight: var(--nexus-font-bold);
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     margin-bottom: var(--nexus-space-md);
     line-height: 1.2;
 }
 
 .nexus-hero-subtitle {
     font-size: var(--nexus-text-xl);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     margin-bottom: var(--nexus-space-lg);
 }
 

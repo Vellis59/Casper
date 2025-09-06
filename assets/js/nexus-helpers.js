@@ -132,7 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Particle burst on click
             card.addEventListener('click', function(e) {
-                createParticleBurst(e.clientX, e.clientY);
+                // Delay execution to ensure function is defined
+                setTimeout(() => {
+                    if (typeof createParticleBurst === 'function') {
+                        createParticleBurst(e.clientX, e.clientY);
+                    }
+                }, 0);
             });
             
             // Progress bar animation

@@ -171,7 +171,7 @@
     font-family: var(--nexus-font-primary);
     font-size: var(--nexus-text-xl);
     font-weight: var(--nexus-font-bold);
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     margin-bottom: var(--nexus-space-md);
     line-height: 1.3;
     transition: all var(--nexus-transition-fast);
@@ -183,7 +183,7 @@
 }
 
 .nexus-card-excerpt {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     line-height: 1.6;
     margin-bottom: var(--nexus-space-lg);
     font-size: var(--nexus-text-base);
@@ -235,14 +235,14 @@
 .nexus-author-name {
     font-family: var(--nexus-font-code);
     font-size: var(--nexus-text-sm);
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     margin-bottom: 2px;
 }
 
 .nexus-author-meta {
     font-family: var(--nexus-font-code);
     font-size: var(--nexus-text-xs);
-    color: var(--text-muted);
+    color: var(--nexus-text-muted);
 }
 
 /* Interaction Buttons */
@@ -257,7 +257,7 @@
     background: transparent;
     border: 1px solid var(--nexus-border);
     border-radius: var(--nexus-radius-sm);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     font-family: var(--nexus-font-code);
     font-size: var(--nexus-text-xs);
     cursor: pointer;

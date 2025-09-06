@@ -270,7 +270,7 @@ body.nexus-minimal-mode .nexus-hologram {
     background: var(--nexus-bg-secondary);
     border: 1px solid var(--nexus-border);
     border-radius: var(--nexus-radius-md);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     font-family: var(--nexus-font-code);
     font-size: var(--nexus-text-xs);
     cursor: pointer;

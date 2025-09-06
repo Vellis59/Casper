@@ -3,18 +3,18 @@
 
 /* Override global styles for dark-first approach */
 html, body {
-    background-color: var(--bg-primary) !important;
-    color: var(--text-primary) !important;
+    background-color: var(--nexus-bg-primary) !important;
+    color: var(--nexus-text-primary) !important;
 }
 
 /* Site structure with dark theme */
 .site-content {
-    background-color: var(--bg-primary);
+    background-color: var(--nexus-bg-primary);
 }
 
 /* Header styling */
 .gh-head {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border-bottom: 1px solid var(--nexus-border);
 }
 
@@ -23,7 +23,7 @@ html, body {
 }
 
 .gh-head-logo {
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     font-family: var(--nexus-font-display);
     font-weight: var(--nexus-font-bold);
 }
@@ -35,7 +35,7 @@ html, body {
 
 /* Navigation */
 .gh-head-menu a {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     font-family: var(--nexus-font-primary);
     font-weight: var(--nexus-font-medium);
     transition: all var(--nexus-transition-fast);
@@ -48,11 +48,11 @@ html, body {
 
 /* Main content areas */
 .post-feed {
-    background: var(--bg-primary);
+    background: var(--nexus-bg-primary);
 }
 
 .post-card {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border: 1px solid var(--nexus-border);
     border-radius: var(--nexus-radius-lg);
     transition: all var(--nexus-transition-normal);
@@ -65,7 +65,7 @@ html, body {
 }
 
 .post-card-title {
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     font-family: var(--nexus-font-primary);
     font-weight: var(--nexus-font-semibold);
 }
@@ -75,12 +75,12 @@ html, body {
 }
 
 .post-card-excerpt {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     line-height: var(--nexus-leading-relaxed);
 }
 
 .post-card-meta {
-    color: var(--text-muted);
+    color: var(--nexus-text-muted);
     font-family: var(--nexus-font-primary);
     font-size: var(--nexus-text-sm);
 }
@@ -91,30 +91,30 @@ html, body {
 
 /* Post content */
 .post-content {
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    background: var(--nexus-bg-primary);
+    color: var(--nexus-text-primary);
 }
 
 .post-full-header {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border-bottom: 1px solid var(--nexus-border);
 }
 
 .post-full-title {
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     font-family: var(--nexus-font-primary);
     font-weight: var(--nexus-font-bold);
 }
 
 .post-full-meta {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
 }
 
 /* Footer */
 .site-footer {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border-top: 1px solid var(--nexus-border);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
 }
 
 .site-footer a {
@@ -151,10 +151,10 @@ html, body {
 
 /* Forms */
 input, textarea, select {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border: 1px solid var(--nexus-border);
     border-radius: var(--nexus-radius-md);
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     font-family: var(--nexus-font-primary);
 }
 
@@ -165,7 +165,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Search */
 .gh-search {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
 }
 
 .gh-search:hover {
@@ -174,27 +174,27 @@ input:focus, textarea:focus, select:focus {
 
 /* Pagination */
 .pagination {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border-radius: var(--nexus-radius-lg);
     border: 1px solid var(--nexus-border);
 }
 
 .pagination a {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     transition: all var(--nexus-transition-fast);
 }
 
 .pagination a:hover {
     color: var(--nexus-primary);
-    background: var(--bg-tertiary);
+    background: var(--nexus-bg-tertiary);
 }
 
 /* Tags */
 .tag {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border: 1px solid var(--nexus-border);
     border-radius: var(--nexus-radius-md);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     font-family: var(--nexus-font-code);
     font-size: var(--nexus-text-xs);
     transition: all var(--nexus-transition-fast);
@@ -208,38 +208,38 @@ input:focus, textarea:focus, select:focus {
 
 /* Author info */
 .author-card {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border: 1px solid var(--nexus-border);
     border-radius: var(--nexus-radius-lg);
 }
 
 .author-card-name {
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     font-family: var(--nexus-font-primary);
     font-weight: var(--nexus-font-semibold);
 }
 
 .author-card-content {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
 }
 
 /* Newsletter signup */
 .subscribe-form {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border: 1px solid var(--nexus-border);
     border-radius: var(--nexus-radius-lg);
 }
 
 .subscribe-form-title {
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     font-family: var(--nexus-font-primary);
     font-weight: var(--nexus-font-semibold);
 }
 
 /* Error pages */
 .error-template {
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    background: var(--nexus-bg-primary);
+    color: var(--nexus-text-primary);
 }
 
 .error-code {
@@ -249,7 +249,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Mobile burger menu */
 .gh-burger {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
 }
 
 .gh-burger:hover {
@@ -274,7 +274,7 @@ body.light-mode .pagination {
 }
 
 .nexus-social-link {
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
     font-family: var(--nexus-font-code);
     font-size: var(--nexus-text-sm);
     transition: all var(--nexus-transition-fast);

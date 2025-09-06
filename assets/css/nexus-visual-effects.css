@@ -183,7 +183,7 @@
 /* Glitch Text Effect */
 .nexus-glitch-text {
     position: relative;
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
 }
 
 .nexus-glitch-text::before,

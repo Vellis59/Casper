@@ -7,8 +7,8 @@ body.nexus-theme {
     font-weight: var(--nexus-font-normal);
     font-size: var(--nexus-text-base);
     line-height: var(--nexus-leading-normal);
-    color: var(--text-primary);
-    background-color: var(--bg-primary);
+    color: var(--nexus-text-primary);
+    background-color: var(--nexus-bg-primary);
     transition: background-color var(--nexus-transition-normal), color var(--nexus-transition-normal);
 }
 
@@ -16,7 +16,7 @@ body.nexus-theme {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--nexus-font-primary);
     font-weight: var(--nexus-font-semibold);
-    color: var(--text-primary);
+    color: var(--nexus-text-primary);
     line-height: var(--nexus-leading-tight);
     margin-bottom: var(--nexus-space-md);
 }
@@ -102,11 +102,11 @@ a:hover {
 blockquote {
     margin: var(--nexus-space-lg) 0;
     padding: var(--nexus-space-md) var(--nexus-space-lg);
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border-left: 4px solid var(--nexus-primary);
     border-radius: var(--nexus-radius-md);
     font-style: italic;
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
 }
 
 blockquote p:last-child {
@@ -117,7 +117,7 @@ blockquote p:last-child {
 ul, ol {
     margin: var(--nexus-space-md) 0;
     padding-left: var(--nexus-space-lg);
-    color: var(--text-secondary);
+    color: var(--nexus-text-secondary);
 }
 
 li {
@@ -133,7 +133,7 @@ table {
     width: 100%;
     margin: var(--nexus-space-lg) 0;
     border-collapse: collapse;
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
     border-radius: var(--nexus-radius-lg);
     overflow: hidden;
 }
@@ -145,7 +145,7 @@ th, td {
 }
 
 th {
-    background: var(--bg-tertiary);
+    background: var(--nexus-bg-tertiary);
     font-family: var(--nexus-font-code);
     font-weight: var(--nexus-font-semibold);
     color: var(--nexus-primary);
@@ -159,7 +159,7 @@ tr:last-child td {
 }
 
 tr:hover {
-    background: var(--bg-tertiary);
+    background: var(--nexus-bg-tertiary);
 }
 
 /* Horizontal rules */
@@ -191,7 +191,7 @@ hr {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
+    background: var(--nexus-bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -216,7 +216,7 @@ select:focus {
 small,
 .nexus-text-small {
     font-size: var(--nexus-text-sm);
-    color: var(--text-muted);
+    color: var(--nexus-text-muted);
 }
 
 /* Large text elements */
