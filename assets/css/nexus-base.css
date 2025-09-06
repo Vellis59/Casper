@@ -266,6 +266,32 @@ body.light-mode .pagination {
     box-shadow: var(--nexus-shadow-sm);
 }
 
+/* Social links in footer */
+.nexus-social-links {
+    display: flex;
+    gap: var(--nexus-space-md);
+    margin-top: var(--nexus-space-sm);
+}
+
+.nexus-social-link {
+    color: var(--text-secondary);
+    font-family: var(--nexus-font-code);
+    font-size: var(--nexus-text-sm);
+    transition: all var(--nexus-transition-fast);
+}
+
+.nexus-social-link:hover {
+    color: var(--nexus-primary);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .nexus-social-links {
+        justify-content: center;
+        margin-top: var(--nexus-space-md);
+    }
+}
+
 /* Auto color scheme responsive behavior */
 @media (prefers-color-scheme: light) {
     body.auto-color .gh-head,

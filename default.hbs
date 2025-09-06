@@ -88,6 +88,24 @@
             <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
             <nav class="site-footer-nav">
                 {{navigation type="secondary"}}
+                {{!-- Social links from custom settings --}}
+                <div class="nexus-social-links">
+                    {{#if @custom.github_username}}
+                    <a href="https://github.com/{{@custom.github_username}}" target="_blank" rel="noopener" class="nexus-social-link">
+                        GitHub
+                    </a>
+                    {{/if}}
+                    {{#if @custom.twitter_username}}
+                    <a href="https://twitter.com/{{@custom.twitter_username}}" target="_blank" rel="noopener" class="nexus-social-link">
+                        Twitter
+                    </a>
+                    {{/if}}
+                    {{#if @custom.linkedin_username}}
+                    <a href="https://linkedin.com/in/{{@custom.linkedin_username}}" target="_blank" rel="noopener" class="nexus-social-link">
+                        LinkedIn
+                    </a>
+                    {{/if}}
+                </div>
             </nav>
             <div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
         </div>
@@ -119,13 +137,40 @@
 <script src="{{asset "js/nexus-tech.js"}}"></script>
 
 {{!-- Prism.js for syntax highlighting --}}
+{{#match @custom.syntax_theme "GitHub Dark"}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-github-dark.min.css" rel="stylesheet">
+{{else match @custom.syntax_theme "VS Code Dark"}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-vsc-dark-plus.min.css" rel="stylesheet">
+{{else}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+{{/match}}
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
 {{#if @custom.show_code_line_numbers}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
 {{/if}}
+
+{{!-- Custom CSS for code font and theme settings --}}
+<style>
+{{#match @custom.code_font "JetBrains Mono"}}
+:root { --nexus-font-code: 'JetBrains Mono', 'Fira Code', monospace; }
+{{else match @custom.code_font "SF Mono"}}
+:root { --nexus-font-code: 'SF Mono', 'JetBrains Mono', monospace; }
+{{else}}
+:root { --nexus-font-code: 'Fira Code', 'JetBrains Mono', monospace; }
+{{/match}}
+
+{{#unless @custom.enable_code_copy}}
+.nexus-code-copy { display: none !important; }
+{{/unless}}
+
+{{#unless @custom.enable_tech_badges}}
+.nexus-badge { display: none !important; }
+{{/unless}}
+</style>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger

@@ -111,20 +111,20 @@
             "title_font": {
                 "type": "select",
                 "options": [
-                    "Inter (Tech Sans-serif)",
-                    "JetBrains Mono (Display)",
+                    "Modern sans-serif",
+                    "JetBrains Mono",
                     "Elegant serif"
                 ],
-                "default": "Inter (Tech Sans-serif)"
+                "default": "Modern sans-serif"
             },
             "body_font": {
                 "type": "select",
                 "options": [
-                    "Inter (Tech Sans-serif)",
-                    "Fira Code (Monospace)",
+                    "Modern sans-serif",
+                    "Fira Code",
                     "Elegant serif"
                 ],
-                "default": "Inter (Tech Sans-serif)"
+                "default": "Modern sans-serif"
             },
             "code_font": {
                 "type": "select",
@@ -165,20 +165,18 @@
             "color_scheme": {
                 "type": "select",
                 "options": [
-                    "Dark (Nexus Default)",
+                    "Dark",
                     "Light",
                     "Auto"
                 ],
-                "default": "Dark (Nexus Default)"
+                "default": "Dark"
             },
             "syntax_theme": {
                 "type": "select",
                 "options": [
                     "Nexus Dark",
                     "GitHub Dark",
-                    "VS Code Dark",
-                    "Matrix",
-                    "Ocean"
+                    "VS Code Dark"
                 ],
                 "default": "Nexus Dark",
                 "group": "tech"
